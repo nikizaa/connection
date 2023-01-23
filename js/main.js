@@ -166,7 +166,7 @@ function buttonpage3() {
               displayPage(9)
 
             }
-             reset()
+           reset()
           })
           partie = true;
           displayPage(3)
@@ -287,15 +287,6 @@ gorecherche.onclick = () => {
   displayPage(12);
 
   nextPage = 3
-
-}
-
-
-chercherStart.onclick = () => {
-
-  displayPage(3);
-
-  
 
 }
 
