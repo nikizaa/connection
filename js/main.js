@@ -155,6 +155,7 @@ function buttonpage3() {
           onFound((val) => {
             if (target == val) return
             console.log(val)
+
             if (!val) return
             if (val == window.sessionStorage.getItem("id")) {
               displayPage(7);
@@ -165,7 +166,7 @@ function buttonpage3() {
               displayPage(9)
 
             }
-            reset()
+            // reset()
           })
           partie = true;
           displayPage(3)
@@ -278,6 +279,7 @@ bouttonSuivantTolate.onclick = () => {
 retourchercher.onclick = () => {
   start = true
   displayPage(2)
+  reset()
 }
 
 gorecherche.onclick = () => {
@@ -323,7 +325,7 @@ function buttonpage5() {
           if (vals.indexOf(window.sessionStorage.getItem("id")) == -1) {
             displayPage(8)
             const page8 = document.getElementById('page8');
-              page8.style.backgroundColor = "#e4a86c";
+            page8.style.backgroundColor = "#e4a86c";
 
           }
 
@@ -367,7 +369,7 @@ function buttonpage6() {
 function buttonnon() {
   function toggleDivs6() {
     displayPage(3)
-
+    reset()
 
   }
   buttonNon.onclick = toggleDivs6

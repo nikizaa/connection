@@ -12,6 +12,7 @@ import {
   update,
   get,
   onValue,
+  remove,
 
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
@@ -20,6 +21,7 @@ import {
   ref as refi,
   uploadBytes,
   getDownloadURL,
+
 }
   from "https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js";
 
@@ -141,7 +143,8 @@ onAuthStateChanged(auth, (user) => {
 
     }
     window.reset = () => {
-      reset(ref(DATABASE, '/'), null) //! QUOI AJOUTER LÀ
+      remove(ref(DATABASE, '/'), null) //! QUOI AJOUTER LÀ
+      console.log("reset")
     }
     // MESSAGE TO SEND
 
