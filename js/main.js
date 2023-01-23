@@ -378,31 +378,31 @@ function buttonnon() {
 
 const names = [{
   "name": "Maitre pelican feneant",
-  "src": "./img/PelicanVertG.png"
+  "src": "../img/PelicanVertG.png"
 },
 {
   "name": "Empreur pingouin dérangé",
-  "src": "./img/pinguinVertG.png"
+  "src": "../img/pinguinVertG.png"
 },
 {
   "name": "Princesse poule argnieuse",
-  "src": "./img/PouleVertG.png"
+  "src": "../img/PouleVertG.png"
 },
 {
   "name": " Docteur Aigle troublé",
-  "src": "./img/aigleVertG.png"
+  "src": "../img/aigleVertG.png"
 },
 {
   "name": "Princesse autruche robuste",
-  "src": "./img/autrucheVertG.png"
+  "src": "../img/autrucheVertG.png"
 },
 {
   "name": "Duc hibou bourru",
-  "src": "./img/HibbouVertG.png"
+  "src": "../img/HibbouVertG.png"
 },
 {
   "name": "Colonel canard cruel",
-  "src": "./img/CanardVertG.png"
+  "src": "../img/CanardVertG.png"
 }
 
 
