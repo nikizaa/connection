@@ -166,7 +166,7 @@ function buttonpage3() {
               displayPage(9)
 
             }
-            // reset()
+             reset()
           })
           partie = true;
           displayPage(3)
