@@ -254,7 +254,7 @@ function buttonpage3() {
     })
   }
 
-  chercherStart.onclick = toggleDivs2
+  // chercherStart.onclick = toggleDivs2
   buttonStart.onclick = toggleDivs12
   // rechercher.onclick = toggleDivs2
   buttonBack.onclick = toggleDivs2
@@ -287,6 +287,14 @@ gorecherche.onclick = () => {
   displayPage(12);
 
   nextPage = 3
+
+}
+
+
+chercherStart.onclick = () => {
+
+  displayPage(2);
+
 
 }
 
