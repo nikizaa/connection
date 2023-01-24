@@ -13,6 +13,7 @@ import {
   get,
   onValue,
   remove,
+  off,
 
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
@@ -143,13 +144,22 @@ onAuthStateChanged(auth, (user) => {
 
     }
     window.reset = () => {
-      remove(ref(DATABASE, '/'), null) //! QUOI AJOUTER LÀ
+
+      
+      remove(ref(DATABASE, '/'), null)
+
+      off()
+
       console.log("reset")
+
     }
+
+
     // MESSAGE TO SEND
 
 
     window.addPerson = (objet, _id = id) => {
+
       const path = ref(DATABASE, `people/${_id}`);
       set(path, objet);
     };

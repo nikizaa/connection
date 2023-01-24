@@ -27,7 +27,7 @@ let bouttonSuivantTolate = document.getElementById("suivanttoLate")
 let retourchercher = document.getElementById("retourchercher")
 let gorecherche = document.getElementById("gorecherche");
 let chercherStart = document.getElementById("chercherStart")
-
+let exit = false;
 
 let output = document.getElementById("output")
 let number
@@ -47,10 +47,12 @@ let nextPage = 13;
 
 const MAX_PAGE = 15;
 
-function displayPage(num_page) {
+function displayPage(num_page, callback) {
   for (let i = 1; i <= 15; ++i) {
     document.getElementById(`page${i}`).style.display = i == num_page ? 'block' : 'none';
   }
+  if (callback)
+    callback()
 }
 
 function main() {
@@ -110,7 +112,8 @@ function buttonpage2() {
 
 function buttonpage3() {
   function toggleDivs2() {
-    start = false;
+    exit = true;
+    // start = false;
     partie = false;
     getTarget(function (targetId) {
       console.log(targetId)
@@ -166,19 +169,21 @@ function buttonpage3() {
               displayPage(9)
 
             }
-            setTimeout(()=>{
-              reset()
-          
-          },3000)
-         
+            console.log(val)
+            reset()
+
+            partie=false;
+
           })
           partie = true;
-          displayPage(3)
+          displayPage(3, () => {
+            start = true;
+          })
           return;
 
         }
 
-        
+
         if (partie) return
         const page6 = document.getElementById('page6');
 
@@ -197,7 +202,11 @@ function buttonpage3() {
         console.log("hello");
         partie = true;
         if (!start) {
-          displayPage(6)
+          displayPage(6, () => {
+            start = true
+            console.log("startTrue")
+
+          })
         }
 
 
@@ -258,6 +267,7 @@ function buttonpage3() {
         }
       }, id)
     })
+    exit = false;
   }
 
   chercherStart.onclick = toggleDivs2
@@ -283,13 +293,12 @@ bouttonSuivantTolate.onclick = () => {
 }
 
 retourchercher.onclick = () => {
-  start = true
+  start = false
   displayPage(2)
-  setTimeout(()=>{
-    reset()
 
-},3000)
- 
+
+
+
 }
 
 gorecherche.onclick = () => {
@@ -304,7 +313,7 @@ function buttonpage4() {
   function toggleDivs3() {
 
     displayPage(4)
-    
+
     capture()
 
   }
@@ -347,7 +356,7 @@ function buttonpage5() {
 
 function buttonpage6() {
   function toggleDivs5() {
-
+    exit = false;
     const page6 = document.getElementById('page6');
 
     // page6.style.backgroundColor = "#e4a86c";
@@ -371,7 +380,7 @@ function buttonpage6() {
 function buttonnon() {
   function toggleDivs6() {
     displayPage(3)
- 
+
 
   }
   buttonNon.onclick = toggleDivs6
@@ -431,6 +440,8 @@ creataccount.onsubmit = function (e) {
 
   addPerson(data);
   onList(function (val) {
+    if (!val)
+      return
     console.log(val);
 
     let persontofind = Object.keys(val)[Math.floor(Math.random() * Object.keys(val).length)]
