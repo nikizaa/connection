@@ -7,7 +7,7 @@ body {
   width: 100vw;
   /* display: flex;
   justify-content: center; */
-  
+
 }
 .bg-color {
   position: absolute;
@@ -97,10 +97,18 @@ h4 {
   width: 95%;
 }
 #bottomCardButton {
-  margin-top: 32%;
-  background-color: red;
+  /* position: absolute; */
+  /* margin-top: 200%; */
+  /* background-color: red; */
   border: solid;
   z-index: 112;
+}
+
+#bottomCardyellow {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  margin-top: -10%;
 }
 #scrollDown {
   background-color: #404557;
@@ -284,12 +292,7 @@ h3 {
   transform: translate(-50%, -50%);
 }
 
-#bottomCardyellow {
-  position: absolute;
-  width: 100%;
-  z-index: -1;
-  margin-top: -20%;
-}
+
 #textStart {
   color: #404557;
   position: absolute;
@@ -315,7 +318,7 @@ h3 {
   text-transform: uppercase;
   color: #497a72;
   justify-content: center;
-  line-height: 80%;
+  line-height: 90%;
   font-size: 28pt;
   padding-top: 10pt;
 }
@@ -335,7 +338,7 @@ h3 {
   text-transform: uppercase;
   color: #efdfd1;
   font-size: 0.8em;
-  line-height: 97%;
+  line-height: 99%;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -402,7 +405,7 @@ h3 {
   justify-content: center;
   text-align: center;
   align-items: center;
-  margin-top: -20%;
+  margin-top: -32%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -847,7 +850,7 @@ canvas {
   margin-left: 6%;
   text-align: left;
   align-items: center;
-  margin-top: 185%;
+  margin-top: 155%;
 }
 #suivanttoLate {
   position: absolute;
@@ -866,7 +869,7 @@ canvas {
   margin-left: 6%;
   text-align: left;
   align-items: center;
-  margin-top: 185%;
+  margin-top: 155%;
 }
 #nop {
   color: #d16a5b;
@@ -1123,13 +1126,13 @@ canvas {
 
 #txtindice {
   position: absolute;
-  background-color: #efdfd1;
+  /* background-color: #efdfd1; */
   color: #d16a5b;
   font-family: "raleway";
   font-size: 16pt;
-  margin-top: 147%;
+  margin-top: 145%;
   margin-left: 13%;
-  /* z-index: 1; */
+  z-index: 3;
 }
 #indiceSupp {
   position: absolute;
@@ -1140,10 +1143,11 @@ canvas {
   font-family: "raleway";
   font-size: 16pt;
   border-radius: 5px;
-  margin-top: 145%;
+  margin-top: 152%;
   margin-left: 10%;
   padding: 5px;
   padding-right: 183px;
+  z-index: -1;
 }
 /* #page6{
   height: 100vw;

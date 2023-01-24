@@ -166,13 +166,19 @@ function buttonpage3() {
               displayPage(9)
 
             }
-           reset()
+            setTimeout(()=>{
+              reset()
+          
+          },3000)
+         
           })
           partie = true;
           displayPage(3)
           return;
 
         }
+
+        
         if (partie) return
         const page6 = document.getElementById('page6');
 
@@ -279,7 +285,11 @@ bouttonSuivantTolate.onclick = () => {
 retourchercher.onclick = () => {
   start = true
   displayPage(2)
-  reset()
+  setTimeout(()=>{
+    reset()
+
+},3000)
+ 
 }
 
 gorecherche.onclick = () => {
@@ -294,13 +304,7 @@ function buttonpage4() {
   function toggleDivs3() {
 
     displayPage(4)
-    // navigator.mediaDevices.getUserMedia({ audio: false, video: {facingMode:"environement"} })
-    //   .then((stream) => {
-    //     const vid = document.getElementById("vid")
-    //     vid.srcObject = stream;
-    //     vid.play()
-    //     console.log(vid)
-    //   })
+    
     capture()
 
   }
@@ -361,15 +365,13 @@ function buttonpage6() {
     displayPage(6)
   }
   buttonokgo.onclick = toggleDivs5
-  // buttonDebeug.onclick = toggleDivs5
-  // monProfil.onclick = toggleDivs5
-  // goprofil.onclick = toggleDivs5
+
 }
 
 function buttonnon() {
   function toggleDivs6() {
     displayPage(3)
-    reset()
+ 
 
   }
   buttonNon.onclick = toggleDivs6
@@ -492,35 +494,6 @@ function capture() {
 
 
 
-
-// function capture() {
-//   var canvas = document.getElementById("preview");
-//   var video = document.querySelector("#vid");
-//   canvas.width = video.videoWidth;
-//   canvas.height = video.videoHeight;
-//   canvas
-//     .getContext("2d")
-//     .drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-
-//   /** Code to merge image **/
-//   /** For instance, if I want to merge a play image on center of existing image **/
-//   // const playImage = new Image();
-//   // playImage.src = "/img/";
-//   // playImage.onload = () => {
-
-//   canvas.toBlob((blob) => {
-//     const img = document.createElement("img");
-//     img.src = URL.createObjectURL(blob);
-//     const previewContainer = document.getElementById("previewContainer");
-//     previewContainer.appendChild(img);
-//     console.log("teste")
-//     video.pause()
-//     imgData = blob
-//   });
-//   // };
-//   /** End **/
-// }
-
 const closeButton = document.getElementById("close-button");
 const cToiPopUp = document.getElementById("cToiPopUp");
 
@@ -534,20 +507,6 @@ closeButton.addEventListener("click", function () {
   }
 });
 
-// const closeButton2 = document.getElementById("close-button2");
-// const popUpphoto = document.getElementById("popUpphoto");
-
-// closeButton2.addEventListener("click", function () {
-//   if (popUpphoto.style.display === 'none') {
-//     popUpphoto.style.display = 'block';
-//     popUpphoto.style.transform = 'translateY(0)';
-//   } else {
-//     popUpphoto.style.display = 'none';
-//     popUpphoto.style.transform = 'translateY(-100%)';
-//   }
-// });
-
-// Get the button and orangeCard elements
 const scrollDown = document.getElementById('scrollDown');
 const orangeCard = document.getElementById('commeHere');
 

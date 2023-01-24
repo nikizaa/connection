@@ -5,11 +5,12 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">  <title>connection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>connection</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
@@ -23,12 +24,13 @@
 
   <div id="page1" class="bg-color">
     <h1 id="titre1">CONNECTION</h1>
-    <h4 id="intro1">Le jeu qui va te permettre de tisser des liens avec les personnes qui t'entourent, pour une soirée pleine de surprises et de connections </h4>
+    <h4 id="intro1">Le jeu qui va te donner l'occasion de faire de nouvelles connaissances et de tisser des liens avec
+      les personnes autour de toi, pour passer une soirée remplie de surprises et de connections.</h4>
     <button id="scrollDown">
       <img src="./img/chevrondown.png" id="chevronDown">
     </button>
-<div id="commeHere"></div>
-    <div class="card" >
+    <div id="commeHere"></div>
+    <div class="card">
       <img src="./img/whiteGreenCard.png" alt="whitegreen" id="orangeCard">
       <img src="./img/oeil.png" alt="oeil" id="oeilimg">
       <h2 id="yeux">LÈVES LES YEUX</h2>
@@ -52,10 +54,14 @@
     <div class="card">
       <img src="./img/whiteRedCard.png" alt="blueCard" id="card">
       <h3>TRÈS BIEN</h3>
-      <h4 id="jouer"> Maintenant on va réellement jouer ! </h4>
+      <h4 id="jouer"> Bravo, le vrai jeu peut commencer </h4>
       <h4 id="explication"> Autour de toi se trouvent d'autres joueurs et vous allez devoir vous retrouver </h4>
       <p><button type="button" id="start">JOUER</button></p>
-      <img src="./img/bottomYellow.png" alt="bottomCard" id="bottomCardyellow">
+
+
+      <!-- <button id="bottomCardButton">
+        <img src="./img/bottomYellow.png" alt="bottomCard" id="bottomCardyellow">
+      </button> -->
     </div>
   </div>
 
@@ -107,19 +113,19 @@
       <img src="./img/whiteBlue.png" alt="blueCard" id="card">
       <h3 id="phototrouver">TU PENSES L'AVOIR TROUVÉ ?</h3>
       <h4 id="prendsunephoto">
-        Prends la personne en photo de manière discrette pour une validation</h4>
-        <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">
-        <img id="preview"style="display: none;" >
-        <button id="screnshot">
-          <img src="./img/camera.png">
-        </button>
-        <div id="previewContainer"></div>
+        Prends la personne en photo discrètement pour une validation</h4>
+      <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">
+      <img id="preview" style="display: none;">
+      <button id="screnshot">
+        <img src="./img/camera.png">
+      </button>
+      <div id="previewContainer"></div>
 
-        
 
-      <p><button type="button" id="envoie">ENVOYÉ</button></p>
 
-      <img src="./img/cadrephotoVal.png" id="cadreImg"> 
+      <p><button type="button" id="envoie">ENVOYER</button></p>
+
+      <img src="./img/cadrephotoVal.png" id="cadreImg">
 
     </div>
   </div>
@@ -141,9 +147,9 @@
     <div class="card">
       <img src="./img/whiteRedCard.png" alt="blueCard" id="card">
 
-      <h3 id="bravo">BRAVOO</h3>
+      <h3 id="bravo">BRAVOOO</h3>
       <h4 id="bravotxt">Tu l'as trouvé avant les autres utilisateurs! </h4>
-      <h4 id="bonjourtxt">Hésite pas à aller dire bonjour en vrai à cet oiseau que tu as observé durant quelques
+      <h4 id="bonjourtxt">N'hésite pas à aller dire bonjour en IRL à cet oiseau que tu as recherché durant de
         longues minutes</h4>
       <p><button type="button" id="suivantbravo">SUIVANT</button></p>
 
@@ -154,7 +160,7 @@
     <div class="card">
       <img src="./img/whiteRedCard.png" alt="blueCard" id="card">
       <h3 id="tontour">À TON TOUR</h3>
-      <h4 id="tourtxt">Créé ton profil pour que les autres joueurs te cherches également !</h4>
+      <h4 id="tourtxt">Crée ton profil pour que les autres joueurs te cherches également !</h4>
       <p><button type="button" id="non">NON MERCI</button></p>
       <p><button type="button" id="okgo">OK GO</button></p>
 
@@ -181,7 +187,7 @@
     <div class="card">
       <img src="./img/whiteRedCard.png" alt="blueCard" id="card">
 
-      <h3 id="toolate">TROP TAARD !</h3>
+      <h3 id="toolate">TROP TAAARD !</h3>
       <h4 id="toolateD">Un autre utilisateur l'a trouvé avant toi !</h4>
       <h4 id="dommage">Dommage</h4>
       <p><button type="button" id="suivanttoLate">suivant</button></p>
@@ -233,13 +239,13 @@
     <div class="card">
       <img src="./img/whiteBlue.png" alt="blueCard" id="card">
       <h3 id="creeProfil">CRÉE TON<br>PROFIL</h3>
-      <H4 id="decrisToi">Décrit toi le mieux possible</H4>
+      <H4 id="decrisToi">Décris toi le mieux possible</H4>
 
 
       <form id="creataccount">
 
         <select name="pos" id="settingsPosition" value="">
-          <option value="">Ta position</option>
+          <option value="">Ta posture</option>
           <option value="est assis">Assis</option>
           <option value="est debout">Debout</option>
           <option value="est accoudé">Accoudé</option>
@@ -250,21 +256,21 @@
 
         <select name="mood" id="settingsMood" value="">
           <option value="">Ton mood</option>
-          <option value="- est heureux">Heureux</option>
-          <option value="est hyperactive">Hyperactif</option>
-          <option value="est pas content">Tire la geule</option>
-          <option value="est pensant">Pensant</option>
+          <option value="est heureux">Heureux</option>
+          <option value="est hyperactif">Hyperactif</option>
+          <option value="tire la gueule">Tire la gueule</option>
+          <option value="est pensif">Pensant</option>
           <option value="est fatigué">Fatigué</option>
 
 
         </select>
 
         <select name="color" id="settingcolor" value="">
-          <option value="">Ta couleur principal</option>
+          <option value="">Ta couleur principale</option>
           <option value="porte du rouge">Rouge</option>
           <option value="porte du bleu">Bleu</option>
           <option value="porte du vert">Vert</option>
-          <option value="puporte du violet">Violet</option>
+          <option value="porte du violet">Violet</option>
           <option value="porte du gris">Gris</option>
           <option value="porte du orange">Orange</option>
           <option value="porte du noir">Noir</option>
@@ -284,14 +290,14 @@
           <option value="porte un chapeau">Un chapeau</option>
           <option value="porte un bonnet">Un bonnet</option>
           <option value="porte une casquette">Une casquette</option>
-          <option value="porte une echarpe">Une echarpe</option>
-          <option value="porte une banane">Une banane</option>
+          <option value="porte une écharpe">Une écharpe</option>
+
           <option value="porte du charisme">du charisme</option>
           <option value="porte une veste">Une veste </option>
           <option value="à un sac à main">Un sac à main</option>
           <option value="porte un sac à dos">Un sac à dos</option>
           <option value="à un parapluie">Un parapluie</option>
-          <option value="est sur son telephone">Un telephone</option>
+          <option value="est sur son téléphone">Un téléphone</option>
         </select>
 
         <select name="dont" id="settingdonthave" value="">
@@ -300,14 +306,14 @@
           <option value="n'a pas de chapeau">n'as pas de chapeau</option>
           <option value="n'a pas de bonnet">n'as pas de bonnet</option>
           <option value="n'a pas de casquette">n'as pas de casquette</option>
-          <option value="- n'a pas d'echarpe">n'as pas de echarpe</option>
+          <option value="- n'a pas d'écharpe">n'as pas de écharpe</option>
           <option value="n'a pas de veste">n'as pas de veste</option>
           <option value="n'a pas de goût">n'as pas de goût</option>
           <option value="n'a pas de sac">n'as pas de sac a main</option>
           <option value="n'a pas de sac à dos">n'as pas de sac a dos</option>
           <option value="n'a pas de parapluie">n'as pas de parapluie</option>
           <option value="n'a pas de telephone">n'as pas de telephone</option>
-          <option value="n'a pas d'heureux">n'as pas de d'humour</option>
+          <option value="n'a pas d'humour">n'as pas de d'humour</option>
         </select>
 
         <label for="indiceSupp" id="txtindice">Un indice suplémentaire :</label>
@@ -340,4 +346,3 @@
 <script src="./js/main.js" type="module"></script>
 
 </html>
-
