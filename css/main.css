@@ -666,7 +666,7 @@ canvas {
   border-color: none;
   border: none;
   padding: 0 11%;
-  margin-top: 163%;
+  margin-top: 143%;
   margin-left: 7%;
 }
 
@@ -683,7 +683,7 @@ canvas {
   border-color: none;
   border: none;
   padding: 0 12%;
-  margin-top: 163%;
+  margin-top: 143%;
   margin-left: 52%;
 }
 #cadreImgVal {
@@ -703,7 +703,7 @@ canvas {
   line-height: 98%;
 }
 
-#backchercheur {
+#back {
   position: absolute;
   align-items: center;
   justify-content: center;
@@ -850,7 +850,7 @@ canvas {
   margin-left: 6%;
   text-align: left;
   align-items: center;
-  margin-top: 155%;
+  margin-top: 175%;
 }
 #suivanttoLate {
   position: absolute;

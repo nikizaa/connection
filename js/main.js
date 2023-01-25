@@ -331,7 +331,7 @@ function buttonpage5() {
     if (imgData) {
       displayPage(5)
       uploadImage(imgData, window.sessionStorage.getItem("id"), () => {
-
+        imgData == null;
         listenTrouver(() => { }, (vals) => {
 
           console.log(vals);
