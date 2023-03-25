@@ -28,6 +28,7 @@ import {
 
 
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyDhNeqtYvGxk90JaKGad5XrGP30V2QAEhc",
   authDomain: "atelier-72e02.firebaseapp.com",
@@ -57,7 +58,13 @@ signInAnonymously(auth).then(() => {
   console.log("All good, you're signed in.");
 });
 
+const partieId = "p1"
 let path = ref(DATABASE, `data/wrong`);
+let refTarget = ref(DATABASE, `/${partieId}/target`)
+let refQueue = ref(DATABASE, `/${partieId}/queue`)
+let refTrouver = ref(DATABASE, `/${partieId}/target/trouver`)
+let refWinner = ref(DATABASE, `/${partieId}/target/winner`)
+
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -75,187 +82,173 @@ onAuthStateChanged(auth, (user) => {
       id = window.sessionStorage.getItem("id")
     }
 
-    window.listenTrouver = (callback, NF, target) => {
+    window.getTarget = (callback) => {
 
-      onValue(ref(DATABASE, '/trouver'), (snapshot) => {
-        if (snapshot.exists()) {
-          console.log(snapshot.val())
-          let val = snapshot.val()
-          if (typeof (val) == "string") {
-            val = JSON.parse(val)
-          }
-          if (target && val.length > 0) {
+      onValue(refTarget, (snapshot) => {
+        const val = snapshot.val();
+        console.log(val);
+        callback(val)
 
-            callback(val[0], val)
-            return
+      });
+    }
+    window.setQueue = (objet) => {
+      return new Promise((resolve) => {
 
-          }
-          console.log(NF)
-          if (!target)
-            NF(val)
-        }
+        get(refQueue).then((snapshot) => {
+
+          const val = JSON.parse(snapshot.val());
+          val.push(objet)
+          console.log(val);
+          set(ref(DATABASE, `/${partieId}/queue`), JSON.stringify(val))
+          resolve(true)
+
+
+        });
       })
+    }
 
-    };
 
-    window.downloadImage = (_id, callback) => {
-      const imgRef = refi(storage, _id + "/trouver.jpg")
+    window.addTarget = (objet) => {
+      return new Promise((resolve) => {
+       
+        set(refTarget, objet);
+   
+        set(refTrouver, "[]");
+
+        set(refQueue, "[]");
+        resolve(true)
+
+      })
+    }
+
+
+  }
+
+  window.uploadImage = (img, _id = id, callback) => {
+
+    const imgRef = refi(storage, `/${partieId}/${_id}/trouver.jpg`)
+
+    console.log(img, imgRef)
+
+    get(refTrouver).then((snapshot) => {
+      let val = (snapshot.val());
+      if (typeof (val) == "string") {
+        val = JSON.parse(snapshot.val());
+      }
+      console.log('test1')
+      // console.log(val, id)
+
+      if (val.indexOf(_id) != -1) {
+        console.error('id not found!', _id)
+        return
+      }
+
+      console.log('test2')
+
+      uploadBytes(imgRef, img).then(() => {
+
+        val.push(_id);
+       
+        console.log("uploaded", _id)
+        update(refTarget, { "trouver": val }).then(() => {
+          callback()
+        })
+
+      })
+        .catch(error => {
+          console.log(error)
+        })
+    })
+
+  }
+
+  window.downloadImage = (_id) => {
+    return new Promise((resolve, reject) => {
+      const imgRef = refi(storage, `/${partieId}/${_id}/trouver.jpg`)
       getDownloadURL(imgRef).then((url) => {
-        callback(url)
+        resolve(url)
       })
         .catch((error) => {
           console.log(error);
         })
-    }
-
-    window.notFound = (callback) => {
-
-      const path = ref(DATABASE, "/trouver")
-      get(path).then((snapshot) => {
-        let val = snapshot.val()
-        if (typeof (val) == "string") {
-          val = JSON.parse(val)
-        }
-
-        val.shift()
-        update(ref(DATABASE, "/"), { "trouver": JSON.stringify(val) })
-        callback();
-      })
-
-    }
-
-
-    window.onFound = (callback) => {
-      onValue(ref(DATABASE, `/winner`), (snapshot) => {
-        if (snapshot.exists()) {
-          const val = snapshot.val();
-          callback(val)
-        } else {
-          callback(null)
-        }
-      });
-    }
-
-    window.found = (callback, _id) => {
-      update(ref(DATABASE, `/`), { "winner": _id }).then(() => {
-        callback(_id)
-      })
-
-
-    }
-    window.reset = () => {
-
-      
-      remove(ref(DATABASE, '/'), null)
-
-      off()
-
-      console.log("reset")
-
-    }
-
-
-    // MESSAGE TO SEND
-
-
-    window.addPerson = (objet, _id = id) => {
-
-      const path = ref(DATABASE, `people/${_id}`);
-      set(path, objet);
-    };
-
-    window.updatePerson = (objet, _id = id) => {
-      const path = ref(DATABASE, `people/${_id}`);
-      update(path, objet);
-    };
-
-
-
-    // MESSAGE TO RECEIVE
-
-    window.onList = (callback) => {
-      onValue(ref(DATABASE, `/people`), (snapshot) => {
-        const val = snapshot.val();
-        callback(val)
-      });
-    };
-
-    window.onPerson = (callback, _id = id) => {
-      onValue(ref(DATABASE, `/people/${_id}`), (snapshot) => {
-        const val = snapshot.val();
-        callback(val)
-      });
-    }
-    window.setTarget = (targetId) => {
-      const path = ref(DATABASE, `/target`);
-      set(path, targetId);
-      const path2 = ref(DATABASE, `/trouver`);
-      set(path2, "[]");
-    }
-
-    window.getTarget = (callback) => {
-      onValue(ref(DATABASE, `/target`), (snapshot) => {
-        const val = snapshot.val();
-        callback(val)
-      });
-    }
-    window.uploadImage = (img, _id = id, callback) => {
-
-      const imgRef = refi(storage, _id + "/trouver.jpg")
-
-      console.log(img, imgRef)
-
-      get(ref(DATABASE, `/trouver`)).then((snapshot) => {
-        let val = (snapshot.val());
-        if (typeof (val) == "string") {
-          val = JSON.parse(snapshot.val());
-        }
-        console.log('test1')
-        // console.log(val, id)
-
-        if (val.indexOf(id) != -1) {
-          console.error('id not found!', id)
-          return
-        }
-
-        console.log('test2')
-
-        uploadBytes(imgRef, img).then(() => {
-
-          val.push(id);
-          const path = ref(DATABASE, `/`);
-          console.log("uploaded", id)
-          update(path, { "trouver": val }).then(() => {
-            callback()
-          })
-
-        })
-          .catch(error => {
-            console.log(error)
-          })
-      })
-
-    }
-
-
-    // window.onFireLoaded({
-    //   signin
-    // })
-
-
-    // console.log(uid)
-
-
-    // ...
-    // document.getElementById("userName").innerHTML = uid;
-    // } else {
-    //   // User is signed out
-    //   // ...
+    })
   }
-
-
 });
 
+window.listenTrouverTarget = (callback) => {
+
+  onValue(refTrouver, (snapshot) => {
+    if (snapshot.exists()) {
+      console.log(snapshot.val())
+      let val = snapshot.val()
+      if (typeof (val) == "string") {
+        val = JSON.parse(val)
+      }
+      if (val.length > 0) {
+
+        callback(val[0], val)
+        return
+
+      }
+
+    }
+  })
+
+};
+
+window.listenFound = (callback, _id = id) => {
+
+  onValue(refTrouver, (snapshot) => {
+    if (snapshot.exists()) {
+      console.log(snapshot.val())
+      let val = snapshot.val()
+      if (typeof (val) == "string") {
+        val = JSON.parse(val)
+      }
+      if (val.indexOf(_id) != -1) {
+        callback(false)
+      } else {
+        callback(true)
+      }
+
+    }
+  })
+
+};
+
+window.notFound = () => {
+  get(refTrouver).then((snapshot) => {
+    let val = snapshot.val()
+    if (typeof (val) == "string") {
+      val = JSON.parse(val)
+    }
+    console.log(val);
+    val.shift()
+    console.log(val)
+    update(refTarget, { "trouver": JSON.stringify(val) })
+  })
+
+}
+
+
+window.onFound = (callback) => {
+  onValue(refWinner, (snapshot) => {
+    if (snapshot.exists()) {
+      const val = snapshot.val();
+      callback(val)
+    } else {
+      callback(null)
+    }
+  });
+}
+
+window.found = (_id) => {
+  update(refTarget, { "winner": _id }).then(() => {
+    callback(_id)
+  })
+
+
+}
 
 
 // const info = 'This is some information that I want to save.';

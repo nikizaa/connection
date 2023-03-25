@@ -1,13 +1,15 @@
 html,
 body {
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   color: #efdfd1;
   font-size: 16pt;
   overflow-x: hidden;
   width: 100vw;
+  margin: 0;
+  padding: 0;
+  z-index: -100;
   /* display: flex;
   justify-content: center; */
-
 }
 .bg-color {
   position: absolute;
@@ -25,13 +27,28 @@ body {
   z-index: -10;
 }
 
-#titre1 {
-  margin-top: 40%;
-  color: #e4a86c;
-  font-size: 50px;
-  font-variant-caps: unicase;
+#sec1 {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 844px;
+
+  background-color: #404557;
+  z-index: -100;
+}
+
+#waazo {
+  position: relative;
+  display: flex;
   text-align: center;
-  margin-left: 0%;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  padding-left: 10%;
+  padding-top: 30%;
+  /* margin-top: -5%; */
+  /* margin-left: 18%;
+  margin-right: 5%; */
 }
 
 #intro1 {
@@ -56,14 +73,25 @@ h4 {
   left: 38%;
   width: 20%;
 }
-/* 
-.card {
-  position: absolute;
-  /* margin-top: -3%; */
-/* margin-left: 0%; */
+
+#scrollDown {
+  background-color: #404557;
+  border: none;
+}
+
 #commeHere {
   position: absolute;
   margin-top: 45%;
+}
+
+#sec2 {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 844px;
+
+  background-color: #404557;
+  z-index: -100;
 }
 #card {
   position: absolute;
@@ -209,7 +237,7 @@ output {
   background-color: #497a72;
   cursor: pointer;
   font-size: 30pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 15px;
   line-height: 50px;
   border: none;
@@ -251,7 +279,7 @@ h3 {
 
 #jouer {
   position: absolute;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   align-items: left;
   justify-content: left;
   text-align: left;
@@ -280,7 +308,7 @@ h3 {
   background-color: #d16a5b;
   cursor: pointer;
   font-size: 30pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 20px;
   line-height: 50px;
   border: none;
@@ -291,7 +319,6 @@ h3 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 
 #textStart {
   color: #404557;
@@ -353,7 +380,7 @@ h3 {
   background-color: #efdfd1;
   cursor: pointer;
   font-size: 30pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 20px;
   line-height: 50px;
   border: none;
@@ -370,8 +397,7 @@ h3 {
   text-align: left;
   left: 24px;
   top: 314px;
-  font-family: "Titan One", cursive;
-  /* line-height: 35%; */
+  font-family: "Passion One", cursive; /* line-height: 35%; */
   justify-content: left;
   color: #404557;
   z-index: 2;
@@ -398,7 +424,7 @@ h3 {
   background-color: #497a72;
   cursor: pointer;
   font-size: 30pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 20px;
   line-height: 50px;
   border: none;
@@ -442,7 +468,7 @@ h3 {
   background-color: #efdfd1;
   cursor: pointer;
   font-size: 14pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 15px;
   line-height: 22px;
   border: none;
@@ -461,7 +487,7 @@ h3 {
   background-color: #efdfd1;
   cursor: pointer;
   font-size: 14pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 15px;
   line-height: 22px;
   border: none;
@@ -481,13 +507,13 @@ h3 {
   position: absolute;
   align-items: center;
   text-align: center;
-  
+
   margin-top: -24%;
   line-height: 10%;
   justify-content: center;
   color: #404557;
   z-index: -2;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   font-size: 14pt;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -508,7 +534,7 @@ h3 {
   background-color: #efdfd1;
   cursor: pointer;
   font-size: 14pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 15px;
   line-height: 22px;
   border: none;
@@ -526,7 +552,7 @@ h3 {
   background-color: #e4a86c;
   cursor: pointer;
   font-size: 30pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 20px;
   line-height: 50px;
   border: none;
@@ -648,9 +674,7 @@ canvas {
   justify-content: center;
   text-align: center;
   align-items: center;
-  font-family: "Titan One", cursive;
-  
- 
+  font-family: "Passion One", cursive;
 }
 
 #nonPasMoi {
@@ -659,7 +683,7 @@ canvas {
   background-color: #e4a86c;
   cursor: pointer;
   font-size: 24pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 15px;
   line-height: 50px;
   list-style: none;
@@ -676,7 +700,7 @@ canvas {
   background-color: #e4a86c;
   cursor: pointer;
   font-size: 24pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 15px;
   line-height: 50px;
   list-style: none;
@@ -713,17 +737,17 @@ canvas {
   font-size: 20px;
   color: #404557;
   margin-left: 2%;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
 }
 
-#retourchercher { 
+#retourchercher {
   position: absolute;
   width: 83%;
   color: #efdfd1;
   background-color: #e4a86c;
   cursor: pointer;
   font-size: 30pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 20px;
   line-height: 50px;
   border: none;
@@ -767,7 +791,7 @@ canvas {
 }
 #PeutEtreTrouver {
   position: absolute;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   font-size: 15pt;
   color: #404557;
   justify-content: center;
@@ -841,7 +865,7 @@ canvas {
   background-color: #d16a5b;
   cursor: pointer;
   font-size: 24pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 15px;
   padding-left: 24%;
   padding-right: 62%;
@@ -860,7 +884,7 @@ canvas {
   background-color: #d16a5b;
   cursor: pointer;
   font-size: 24pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 15px;
   padding-left: 24%;
   padding-right: 62%;
@@ -902,7 +926,7 @@ canvas {
   padding: 0px 40px;
   font-size: 20px;
   margin-left: 7%;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
 }
 #back {
   position: absolute;
@@ -912,7 +936,7 @@ canvas {
   background-color: #d16a5b;
   cursor: pointer;
   font-size: 24pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 15px;
   padding-left: 24%;
   padding-right: 62%;
@@ -956,7 +980,7 @@ canvas {
   padding: 0px 40px;
   font-size: 20px;
   margin-left: 8%;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
 }
 #back {
   position: absolute;
@@ -966,7 +990,7 @@ canvas {
   background-color: #d16a5b;
   cursor: pointer;
   font-size: 24pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 15px;
   padding-left: 24%;
   padding-right: 62%;
@@ -1004,7 +1028,7 @@ canvas {
   background-color: #d16a5b;
   cursor: pointer;
   font-size: 24pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 10px;
   padding: 0 1%;
   line-height: 50px;
@@ -1021,7 +1045,7 @@ canvas {
   background-color: #d16a5b;
   cursor: pointer;
   font-size: 24pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 10px;
   padding: 0 5%;
   line-height: 50px;
@@ -1167,7 +1191,7 @@ canvas {
 
 #decrisToi {
   color: #404557;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   position: absolute;
   align-items: center;
   justify-content: center;
@@ -1185,7 +1209,7 @@ canvas {
   background: #d16a5b;
   cursor: pointer;
   font-size: 0.8em;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 20%;
   outline: none;
   border: none;
@@ -1258,7 +1282,7 @@ canvas {
   color: #404557;
   position: absolute;
   align-items: center;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   justify-content: center;
   text-align: center;
   margin-top: 155%;
@@ -1272,7 +1296,7 @@ canvas {
   background-color: #efdfd1;
   cursor: pointer;
   font-size: 30pt;
-  font-family: "Titan One", cursive;
+  font-family: "Passion One", cursive;
   border-radius: 20px;
   line-height: 50px;
   border: none;

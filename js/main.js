@@ -48,415 +48,123 @@ let nextPage = 13;
 const MAX_PAGE = 15;
 
 function displayPage(num_page, callback) {
+  window.sessionStorage.setItem("currentPage", num_page)
+
   for (let i = 1; i <= 15; ++i) {
     document.getElementById(`page${i}`).style.display = i == num_page ? 'block' : 'none';
   }
   if (callback)
     callback()
+
 }
-
-function main() {
-  buttonMoreLess();
-  buttonpage2();
-  buttonpage3();
-  buttonpage4();
-  buttonpage5();
-  buttonpage6();
-  buttonnon();
+if (!window.sessionStorage.getItem("currentPage")) {
+  window.sessionStorage.setItem("currentPage", 1)
 }
-console.log(window.sessionStorage.getItem("id"))
-function buttonMoreLess() {
-  // Convert string to primitve number
-  number = parseInt(output.innerText)
+// displayPage(window.sessionStorage.getItem("currentPage"))
 
- /**
- * Start counter by adding any number to start counting.
- * In this case the ouput starts from 0 so to immediately
- * invoke the button to increment the counter add 1 to start 
- * counting in natural
- * number (counting numbers).
- */  counter = number + 1
+const scrollDown = document.getElementById('scrollDown');
+const orangeCard = document.getElementById('commeHere');
 
-  function decrement() {
-    // Increment counter
-    if (value > 0) {
-      value = counter--
+// Add a click event listener to the button
+scrollDown.addEventListener('click', () => {
+  // Scroll to the orangeCard element
+  orangeCard.scrollIntoView({ behavior: 'smooth' });
+});
+
+buttonOk.onclick = () => {
+
+  displayPage(2);
+
+  getTarget((val) => {
+    target = val
+    if (target) {
+      const nomProfil = document.getElementById("pseudo1")
+      myname = target.name
+      const imgProfil = document.getElementById("targetImg1")
+      imgProfil.src = names[myname].src
+      nomProfil.innerText = names[myname].name
     }
-
-    output.innerText = value
-  }
-  function increment() {
-    // Increment counter
-    value = counter++
-    output.innerText = value
-  }
-
-
-  // Output the increment value for every click
-  buttonadd.onclick = increment
-  buttonless.onclick = decrement
-
-}
-function buttonpage2() {
-
-  function toggleDivs() {
-
-    displayPage(2)
-    const page2 = document.getElementById('page2');
-    page2.style.backgroundColor = "#e4a86c";
-
-  }
-  buttonOk.onclick = toggleDivs
-
-}
-
-function buttonpage3() {
-  function toggleDivs2() {
-    exit = true;
-    // start = false;
-    partie = false;
-    getTarget(function (targetId) {
-      console.log(targetId)
-      onPerson(function (target) {
-
-        if (target) {
-          if (targetId == sessionStorage.getItem("id")) {
-
-            targetData = target;
-            const description = document.getElementById("description")
-            let s = "";
-            const pseudo = document.getElementById("pseudo");
-            Object.keys(target).forEach((key) => {
-              if (key != "name")
-                s += "<p>" + target[key] + "</p>"
-            })
-            description.innerHTML = s;
-            pseudo.innerText = names[target["name"]].name;
-            const targetImg = document.getElementById("targetImg")
-            targetImg.src = names[target.name].src
-            // if(targ)
-            displayPage(nextPage)
-            buttontrouve.style.display = "none"
-            return
-          }
-          if (partie) return
-          cToiPopUp.style.display = "none";
-          targetData = target;
-          const description = document.getElementById("description")
-          let s = "";
-          const pseudo = document.getElementById("pseudo");
-          Object.keys(target).forEach((key) => {
-            if (key != "name")
-              s += "<p>" + target[key] + "</p>"
-          })
-          description.innerHTML = s;
-          pseudo.innerText = names[target["name"]].name;
-          const targetImg = document.getElementById("targetImg")
-          targetImg.src = names[target.name].src
-          // if(targ)
-
-          onFound((val) => {
-            if (target == val) return
-            console.log(val)
-
-            if (!val) return
-            if (val == window.sessionStorage.getItem("id")) {
-              displayPage(7);
-              const page7 = document.getElementById('page7');
-              page7.style.backgroundColor = "#e4a86c";
-
-            } else {
-              displayPage(9)
-
-            }
-            console.log(val)
-            reset()
-
-            partie=false;
-
-          })
-          partie = true;
-          displayPage(3, () => {
-            start = true;
-          })
-          return;
-
-        }
-
-
-        if (partie) return
-        const page6 = document.getElementById('page6');
-
-        // page6.style.backgroundColor = "#e4a86c";
-
-        const nomProfil = document.getElementById("nomProfil")
-        myname = Math.floor(Math.random() * names.length)
-
-
-        nomProfil.innerText = names[myname].name
-
-
-
-        const imgProfil = document.getElementById("imgProfil")
-        imgProfil.src = names[myname].src
-        console.log("hello");
-        partie = true;
-        if (!start) {
-          displayPage(6, () => {
-            start = true
-            console.log("startTrue")
-
-          })
-        }
-
-
-      }, targetId)
-    })
-    getTarget((id) => {
-      if (id == window.sessionStorage.getItem("id")) {
-        listenTrouver((val) => {
-          console.log("photo ajouté:", val);
-          downloadImage(val, (url) => {
-            console.log(url);
-            buttontrouve.style.display = "none"
-            popUp.style.display = "block"
-
-            ouvrirButton.onclick = () => {
-              const imgRecu = document.getElementById("imgRecu");
-              imgRecu.src = url;
-              displayPage(11);
-
-            }
-          })
-          propositionId = val
-          ouiCMoi.onclick = () => {
-            found(() => {
-              displayPage(15)
-            }, val)
-
-          }
-
-        }, () => { }, true)
-      }
-
-    })
-
-
-    nonPasMoi.onclick = () => {
-      notFound(() => {
-        popUp.style.display = "none"
-        displayPage(3)
-
-      })
-    }
-
-  }
-  function toggleDivs12() {
-    getTarget((id) => {
-      onPerson((target) => {
-        if (target) {
-          displayPage(12);
-          console.log("page12ici")
-          const pseudo1 = document.getElementById("pseudo1");
-          pseudo1.innerText = names[target["name"]].name;
-          const targetImg1 = document.getElementById("targetImg1")
-          targetImg1.src = names[target.name].src
-
-        } else {
-          toggleDivs2()
-        }
-      }, id)
-    })
-    exit = false;
-  }
-
-  chercherStart.onclick = toggleDivs2
-  buttonStart.onclick = toggleDivs12
-  // rechercher.onclick = toggleDivs2
-  buttonBack.onclick = toggleDivs2
-
-  buttonBackChercheur.onclick = toggleDivs2
-}
-
-bouttonSuivantbravo.onclick = () => {
-  displayPage(14)
-  const page14 = document.getElementById('page14');
-  page14.style.backgroundColor = "#e4a86c";
-
-}
-
-bouttonSuivantTolate.onclick = () => {
-  displayPage(14)
-  const page14 = document.getElementById('page14');
-  page14.style.backgroundColor = "#e4a86c";
-
-}
-
-retourchercher.onclick = () => {
-  start = false
-  displayPage(2)
-
-
-
-
-}
-
-gorecherche.onclick = () => {
-
-  displayPage(12);
-
-  nextPage = 3
-
-}
-
-function buttonpage4() {
-  function toggleDivs3() {
-
-    displayPage(4)
-
-    capture()
-
-  }
-  buttontrouve.onclick = toggleDivs3
-
-}
-
-function buttonpage5() {
-  function toggleDivs4() {
-
-    // //?comment for the moment 
-
-    console.log(imgData)
-
-    if (imgData) {
-      displayPage(5)
-      uploadImage(imgData, window.sessionStorage.getItem("id"), () => {
-        imgData == null;
-        listenTrouver(() => { }, (vals) => {
-
-          console.log(vals);
-          if (vals.indexOf(window.sessionStorage.getItem("id")) == -1) {
-            displayPage(8)
-            const page8 = document.getElementById('page8');
-            page8.style.backgroundColor = "#e4a86c";
-
-          }
-
-        }, false)
-      })
-
-    }
-
-
-    //?______________________________
-  }
-  buttonenvoie.onclick = toggleDivs4
-
-}
-
-function buttonpage6() {
-  function toggleDivs5() {
-    exit = false;
-    const page6 = document.getElementById('page6');
-
-    // page6.style.backgroundColor = "#e4a86c";
-
-    const nomProfil = document.getElementById("nomProfil")
-    myname = Math.floor(Math.random() * names.length)
-
-
-    nomProfil.innerText = names[myname].name
-
-
-    const imgProfil = document.getElementById("imgProfil")
-    imgProfil.src = names[myname].src
-    console.log("hello");
-    displayPage(6)
-  }
-  buttonokgo.onclick = toggleDivs5
-
-}
-
-function buttonnon() {
-  function toggleDivs6() {
-    displayPage(3)
-
-
-  }
-  buttonNon.onclick = toggleDivs6
-
-}
-
-const names = [{
-  "name": "Maitre pelican feneant",
-  "src": "./img/PelicanVertG.png"
-},
-{
-  "name": "Empreur pingouin dérangé",
-  "src": "./img/pinguinVertG.png"
-},
-{
-  "name": "Princesse poule argnieuse",
-  "src": "./img/PouleVertG.png"
-},
-{
-  "name": " Docteur Aigle troublé",
-  "src": "./img/aigleVertG.png"
-},
-{
-  "name": "Princesse autruche robuste",
-  "src": "./img/autrucheVertG.png"
-},
-{
-  "name": "Duc hibou bourru",
-  "src": "./img/HibbouVertG.png"
-
-
-},
-{
-  "name": "Colonel canard cruel",
-  "src": "./img/CanardVertG.png"
-}
-
-
-]
-
-creataccount.onsubmit = function (e) {
-  e.preventDefault()
-  let data = {}
-
-  for (let input of e.target) {
-    if (input.name) {
-      data[input.name] = input.value
-    }
-  }
-
-  nextPage = 13;
-
-  data["name"] = myname
-  console.log(data);
-
-
-
-  addPerson(data);
-  onList(function (val) {
-    if (!val)
-      return
-    console.log(val);
-
-    let persontofind = Object.keys(val)[Math.floor(Math.random() * Object.keys(val).length)]
-    setTarget(persontofind);
-
   })
 
 
+}
+
+let target = null;
+
+buttonStart.onclick = async () => {
+  console.log(target);
+
+  if (target) {
+    displayPage(12)
+
+  } else {
+    displayPage(6)
+
+  }
+}
+
+chercherStart.onclick = () => {
+  const description = document.getElementById("description")
+  let s = "";
+  const pseudo = document.getElementById("pseudo");
+  Object.keys(target).forEach((key) => {
+    if (key != "name" && key != "id" && key != "trouver" && key != "winner")
+      s += "<p>" + target[key] + "</p>"
+  })
+  description.innerHTML = s;
+  pseudo.innerText = names[target["name"]].name;
+  const targetImg = document.getElementById("targetImg")
+  targetImg.src = names[target.name].src
+  if (target.id == window.sessionStorage.getItem("id")) {
+    displayPage(nextPage)
+    buttontrouve.style.display = "none"
+  } else {
+    cToiPopUp.style.display = "none";
+    const targetImg = document.getElementById("targetImg")
+    targetImg.src = names[target.name].src
+  }
+  displayPage(3)
+}
+const closeButton = document.getElementById("close-button");
+const cToiPopUp = document.getElementById("cToiPopUp");
+
+closeButton.addEventListener("click", function () {
+  if (cToiPopUp.style.display === 'none') {
+    cToiPopUp.style.display = 'block';
+    cToiPopUp.style.transform = 'translateY(0)';
+  } else {
+    cToiPopUp.style.transform = 'translateY(-100%)';
+    cToiPopUp.style.display = 'none';
+    console.log("teste")
+    listenTrouverTarget(async (Cid) => {
+      const url = await downloadImage(Cid)
+      nonPasMoi.onclick = () => {
+        alert("pasMoi");
+        notFound();
+        displayPage(3)
+      }
+      ouiCMoi.onclick = () => {
+        found(Cid);
+        displayPage(15)
+      }
+      console.log(url);
+      buttontrouve.style.display = "none"
+      popUp.style.display = "block"
+
+      ouvrirButton.onclick = () => {
+        const imgRecu = document.getElementById("imgRecu");
+        imgRecu.src = url;
+        displayPage(11);
+      }
+    })
+  }
+});
 
 
-  console.log(page1);
+buttontrouve.onclick = () => {
+  displayPage(4)
 
-
-
-
+  capture()
 }
 
 function capture() {
@@ -504,37 +212,121 @@ function capture() {
 }
 
 
+buttonenvoie.onclick = () => {
+  if (imgData) {
+    displayPage(5)
+    uploadImage(imgData, window.sessionStorage.getItem("id"), () => {
+      imgData == null;
+      listenFound((exists) => {
 
-const closeButton = document.getElementById("close-button");
-const cToiPopUp = document.getElementById("cToiPopUp");
+        console.log(vals);
+        if (!exists) {
+          displayPage(8)
+          const page8 = document.getElementById('page8');
+          page8.style.backgroundColor = "#e4a86c";
 
-closeButton.addEventListener("click", function () {
-  if (cToiPopUp.style.display === 'none') {
-    cToiPopUp.style.display = 'block';
-    cToiPopUp.style.transform = 'translateY(0)';
-  } else {
-    cToiPopUp.style.display = 'none';
-    cToiPopUp.style.transform = 'translateY(-100%)';
+        }
+
+      })
+    })
   }
-});
+}
 
-const scrollDown = document.getElementById('scrollDown');
-const orangeCard = document.getElementById('commeHere');
+gorecherche.onclick = () => {
+  displayPage(12);
+}
 
-// Add a click event listener to the button
-scrollDown.addEventListener('click', () => {
-  // Scroll to the orangeCard element
-  orangeCard.scrollIntoView({ behavior: 'smooth' });
-});
+creataccount.onsubmit = async function (e) {
 
-const screnshot = document.getElementById('screnshot');
-const preview = document.getElementById('preview');
+  e.preventDefault()
+  let data = {}
 
-// Add a click event listener to the button
-screnshot.addEventListener('click', () => {
-  // Show the preview element
-  preview.style.display = 'block';
-});
+  for (let input of e.target) {
+    if (input.name) {
+      data[input.name] = input.value
+    }
+  }
 
-window.onload = main
+  nextPage = 13;
+
+  const nomProfil = document.getElementById("nomProfil")
+  myname = Math.floor(Math.random() * names.length)
+
+  const imgProfil = document.getElementById("imgProfil")
+  imgProfil.src = names[myname].src
+
+
+  data["name"] = myname
+  console.log(data);
+
+  data["id"] = window.sessionStorage.getItem("id");
+
+
+
+  if (target) {
+    const nomProfil = document.getElementById("pseudo1")
+    myname = target.name
+    const imgProfil = document.getElementById("targetImg1")
+    imgProfil.src = names[myname].src
+    nomProfil.innerText = names[myname].name
+  }
+
+
+
+  if (!target) {
+    await addTarget(data);
+    displayPage(13);
+
+
+  } else {
+    await setQueue(data);
+    displayPage(12);
+  }
+
+
+  console.log(page1);
+
+
+
+
+}
+
+
+
+
+const names = [{
+  "name": "Maitre pelican feneant",
+  "src": "./img/PelicanVertG.png"
+},
+{
+  "name": "Empreur pingouin dérangé",
+  "src": "./img/pinguinVertG.png"
+},
+{
+  "name": "Princesse poule argnieuse",
+  "src": "./img/PouleVertG.png"
+},
+{
+  "name": " Docteur Aigle troublé",
+  "src": "./img/aigleVertG.png"
+},
+{
+  "name": "Princesse autruche robuste",
+  "src": "./img/autrucheVertG.png"
+},
+{
+  "name": "Duc hibou bourru",
+  "src": "./img/HibbouVertG.png"
+
+
+},
+{
+  "name": "Colonel canard cruel",
+  "src": "./img/CanardVertG.png"
+}
+
+
+]
+
+
 
