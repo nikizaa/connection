@@ -94,8 +94,23 @@ let target = null;
 buttonStart.onclick = async () => {
   console.log(target);
 
-  if (target) {
+  if (target && target.id != window.sessionStorage.getItem("id")) {
+
     displayPage(12)
+    onFound((winner) => {
+      if (target.id != window.sessionStorage.getItem("id")) {
+        if (winner) {
+
+          hardReset()
+          bouttonSuivantbravo.onclick = () => {
+            displayPage(6)
+          }
+          displayPage(7)
+        } else {
+          displayPage(9)
+        }
+      }
+    }, window.sessionStorage.getItem("id"))
 
   } else {
     displayPage(6)
@@ -139,7 +154,8 @@ closeButton.addEventListener("click", function () {
     listenTrouverTarget(async (Cid) => {
       const url = await downloadImage(Cid)
       nonPasMoi.onclick = () => {
-        alert("pasMoi");
+
+        popUp.style.display = 'none';
         notFound();
         displayPage(3)
       }
@@ -152,6 +168,7 @@ closeButton.addEventListener("click", function () {
       popUp.style.display = "block"
 
       ouvrirButton.onclick = () => {
+
         const imgRecu = document.getElementById("imgRecu");
         imgRecu.src = url;
         displayPage(11);
@@ -219,7 +236,7 @@ buttonenvoie.onclick = () => {
       imgData == null;
       listenFound((exists) => {
 
-        console.log(vals);
+
         if (!exists) {
           displayPage(8)
           const page8 = document.getElementById('page8');
@@ -227,7 +244,8 @@ buttonenvoie.onclick = () => {
 
         }
 
-      })
+      }, window.sessionStorage.getItem("id"))
+
     })
   }
 }
@@ -290,17 +308,20 @@ creataccount.onsubmit = async function (e) {
 
 
 }
+buttonBack.onclick = () => {
+  displayPage(3);
+}
 
 
 
 
 const names = [{
   "name": "Maitre pelican feneant",
-  "src": "./img/PelicanVertG.png"
+  "src": "./img/svg/SVG/pinguin.svg"
 },
 {
   "name": "Empreur pingouin dérangé",
-  "src": "./img/pinguinVertG.png"
+  "src": "./img/svg/pinguin.svg"
 },
 {
   "name": "Princesse poule argnieuse",

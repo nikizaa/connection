@@ -2,7 +2,7 @@ html,
 body {
   font-family: "Passion One", cursive;
   color: #efdfd1;
-  font-size: 16pt;
+  font-size: 8pt;
   overflow-x: hidden;
   width: 100vw;
   margin: 0;
@@ -16,8 +16,7 @@ body {
   height: 100vh;
   width: 100%;
   margin-top: -10%;
-  align-items: center;
-  justify-content: center;
+
   font-size: 2rem;
   transition: background-color 0.5s ease;
   background-color: #404557;
@@ -27,56 +26,127 @@ body {
   z-index: -10;
 }
 
-#sec1 {
-  position: relative;
+.page1Flex {
   display: flex;
-  width: 100vw;
-  height: 844px;
-
-  background-color: #404557;
-  z-index: -100;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  font-family: "Passion One", cursive;
 }
 
-#waazo {
-  position: relative;
+#one {
+  /* background-color: red; */
   display: flex;
-  text-align: center;
-  align-items: center;
+  flex-direction: row;
+}
+#two {
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: row;
+}
+#three {
+  /* background-color: green; */
+  display: flex;
+  flex-direction: row;
+}
+#four {
+  /* background-color: orange; */
+  display: flex;
+  flex-direction: row;
+}
+#five {
+  /* background-color: pink; */
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: -10em;
+}
+
+#six {
+  /* background-color: purple; */
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 3em;
+  padding-bottom: 3em;
+}
+
+#bottomPage {
+  display: flex;
+  flex-direction: row;
+  /* background-color: aqua; */
+}
+
+h3 {
+  position: absolute;
+  color: #d16a5b;
+  font-size: 2em;
   justify-content: center;
-  width: 80%;
-  padding-left: 10%;
-  padding-top: 30%;
-  /* margin-top: -5%; */
-  /* margin-left: 18%;
-  margin-right: 5%; */
-}
-
-#intro1 {
+  align-items: center;
   text-align: center;
-  font-size: 20px;
-  padding: 0% 10%;
-  margin-top: -8%;
-  font-family: "Raleway", sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -5em;
+  z-index: 2;
 }
 
 h4 {
+  position: absolute;
+  color: #404557;
+  font-size: 1em;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -5em;
+  z-index: 2;
+}
+#waazo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10em;
+  margin-bottom: -3em;
+}
+
+#intro1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-size: 20px;
-  padding: 0% 10%;
-  margin-top: -10%;
+  font-size: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -1em;
+  padding: 1em;
+
   font-family: "Raleway", sans-serif;
 }
 
 #chevronDown {
-  position: absolute;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  left: 38%;
-  width: 20%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4em;
+  margin-bottom: 6em;
 }
 
 #scrollDown {
-  background-color: #404557;
-  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4em;
+  padding-bottom: 3em;
 }
 
 #commeHere {
@@ -84,60 +154,68 @@ h4 {
   margin-top: 45%;
 }
 
-#sec2 {
-  position: relative;
+.card {
   display: flex;
-  width: 100vw;
-  height: 844px;
-
-  background-color: #404557;
-  z-index: -100;
-}
-#card {
-  position: absolute;
-  width: 95%;
-  z-index: -1;
-  align-items: center;
+  background-color: #efdfd1;
   justify-content: center;
-  top: 47%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-#orangeCard {
-  position: absolute;
   align-items: center;
-  justify-content: center;
-  margin-top: 123%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 95%;
-  z-index: -1;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  width: 14em;
+  height: 25em;
+  border-radius: 0.5em;
 }
-#bottomCard {
-  position: absolute;
-  margin-top: -185%;
+.card2 {
+  display: flex;
+  background-color: #efdfd1;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  z-index: 4;
-  top: 200%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 95%;
-}
-#bottomCardButton {
-  /* position: absolute; */
-  /* margin-top: 200%; */
-  /* background-color: red; */
-  border: solid;
-  z-index: 112;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8em;
+  margin-bottom: 1em;
+  width: 14em;
+  height: 25em;
+  border-radius: 0.5em;
+  z-index: 2;
 }
 
-#bottomCardyellow {
-  position: absolute;
-  width: 100%;
-  z-index: 1;
-  margin-top: -10%;
+.card3 {
+  display: flex;
+  background-color: #497a72;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8em;
+  margin-bottom: 1em;
+  width: 14em;
+  height: 25em;
+  border-radius: 0.5em;
+  z-index: 2;
 }
+
+.card4 {
+  display: flex;
+  background-color: #d16a5b;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8em;
+  margin-bottom: 1em;
+  width: 14em;
+  height: 25em;
+  border-radius: 0.5em;
+  z-index: 2;
+}
+
 #scrollDown {
   background-color: #404557;
   border: none;
@@ -145,108 +223,97 @@ h4 {
 #yeux {
   position: absolute;
   color: #497a72;
-  margin-top: 120%;
-  font-size: 35px;
-  text-align: center;
-  z-index: 2;
-  align-items: center;
   justify-content: center;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -5em;
+  z-index: 2;
 }
 #oeilimg {
   position: absolute;
-  width: 25%;
-  margin-top: 90%;
+  width: 4em;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-left: 38%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -15em;
   z-index: 2;
 }
 #comptez {
   position: absolute;
   color: #497a72;
-  margin-top: 135%;
-  font-size: 20px;
-  padding: 0px 55px;
-  margin-left: 0%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  padding: 4em;
+  z-index: 2;
 }
 
-#container {
-  position: relative;
-  display: grid;
-  margin-top: 149%;
-  margin-left: -1%;
-  width: 100vw;
-  grid-template-columns: repeat(3, 33.3333%);
-  text-align: center;
-  padding: 0px, 10px, 0px, 10px;
-  z-index: 2;
-  overflow-x: hidden;
-}
 #btnless {
   color: #efdfd1;
   background-color: rgba(73, 122, 114, 1);
   cursor: pointer;
-  font-size: 30pt;
-  font-family: "raleway";
-  border-radius: 10px;
-  padding-left: 12%;
-  padding-right: 12%;
-  line-height: 50px;
+  font-size: 2em;
+  border-radius: 0.3em;
+  width: 1.5em;
   list-style: none;
   border-color: none;
   border: none;
-  margin-left: 38%;
-  margin-top: -10%;
+  margin: auto;
+  padding: auto;
+  z-index: 3;
 }
 #btnmore {
   color: #efdfd1;
   background-color: #497a72;
   cursor: pointer;
-  font-size: 30pt;
-  font-family: "raleway";
-  border-radius: 10px;
-  padding-left: 12%;
-  padding-right: 12%;
-  line-height: 50px;
+  font-size: 2em;
+  border-radius: 0.3em;
+  width: 1.5em;
   border: none;
-  margin-right: 20%;
-  margin-top: -10%;
+  margin-left: 3.5em;
+  padding: 0.1em 0em;
 }
-output {
+#output {
+  display: flex;
   position: absolute;
-  font-size: 30pt;
+  font-size: 2em;
   background-color: #497a72;
   color: #efdfd1;
-  border-radius: 10px;
-  padding-left: 15%;
-  padding-right: 15%;
-  padding-bottom: 4%;
-  padding-top: 3%;
-  margin-left: -17%;
-  line-height: 25px;
+  border-radius: 0.3em;
+  width: 1.5em;
+  padding: 0.1em 0.8em;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-family: "raleway";
-  margin-top: 0.5%;
+  margin-left: 0.2em;
+  margin-right: auto;
 }
 
 #ok {
-  position: absolute;
-  width: 83%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   color: #efdfd1;
   background-color: #497a72;
   cursor: pointer;
-  font-size: 30pt;
-  font-family: "Passion One", cursive;
-  border-radius: 15px;
-  line-height: 50px;
+  font-size: 2em;
+  padding: 0.1em 0.1em;
+  width: 7.1em;
+  border-radius: 0.3em;
   border: none;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  margin-top: 6%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-family: "Passion One", cursive;
+
+  /* margin-left: 2em;  */
 }
 
 #page2 {
@@ -255,15 +322,23 @@ output {
   background-size: cover;
 }
 
-h3 {
-  position: absolute;
-  margin-top: 70%;
-  text-align: center;
-  align-items: center;
-  font-size: 34pt;
-  color: #d16a5b;
-  margin-left: 17%;
+#jouer {
   justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 4em;
+}
+#explication {
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6em;
+  padding: 4em;
 }
 
 #page3 {
@@ -277,47 +352,22 @@ h3 {
   margin-top: -13%;
 }
 
-#jouer {
-  position: absolute;
-  font-family: "Passion One", cursive;
-  align-items: left;
-  justify-content: left;
-  text-align: left;
-  margin-top: 84%;
-  padding: 0px 75px;
-  font-size: 20px;
-  color: #404557;
-  margin-left: -1%;
-}
-#explication {
-  position: absolute;
-  align-items: left;
-  justify-content: left;
-  text-align: left;
-  margin-top: 104%;
-  padding: 0px 75px;
-  font-size: 16px;
-  color: #404557;
-  margin-left: -1%;
-}
-
 #start {
-  position: absolute;
-  width: 83%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   color: #efdfd1;
   background-color: #d16a5b;
   cursor: pointer;
-  font-size: 30pt;
-  font-family: "Passion One", cursive;
-  border-radius: 20px;
-  line-height: 50px;
+  font-size: 2em;
+  padding: 0.1em 0.1em;
+  width: 7.1em;
+  border-radius: 0.3em;
   border: none;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  margin-top: 168%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-family: "Passion One", cursive;
 }
 
 #textStart {
@@ -374,47 +424,43 @@ h3 {
   transform: translate(-64%, -54%);
 }
 #chercherStart {
-  position: absolute;
-  width: 83%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   color: #497a72;
   background-color: #efdfd1;
   cursor: pointer;
-  font-size: 30pt;
-  font-family: "Passion One", cursive;
-  border-radius: 20px;
-  line-height: 50px;
+  font-size: 1em;
+  padding: 0.9em 6em;
+  width: 14em;
+  border-radius: 0.5em;
   border: none;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  margin-top: 168%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 29em;
 }
 #textStartdescription {
-  position: absolute;
+  color: #404557;
+  font-size: 1em;
+  justify-content: left;
   align-items: left;
   text-align: left;
-  left: 24px;
-  top: 314px;
-  font-family: "Passion One", cursive; /* line-height: 35%; */
-  justify-content: left;
-  color: #404557;
+  margin: auto;
+  margin-top: -22em;
+  margin-left: -0.5em;
   z-index: 2;
-  font-size: 20px;
-  padding-right: 5%;
 }
 #description {
-  position: absolute;
+  color: #404557;
+  font-size: 1em;
+  justify-content: left;
   align-items: left;
   text-align: left;
-  left: 25px;
-  top: 365px;
-  line-height: 35%;
-  justify-content: left;
-  color: #404557;
+  margin: auto;
+  margin-top: -17em;
+  margin-left: -0.5em;
   z-index: 2;
-  font-size: 20px;
 }
 
 #trouve {
@@ -440,17 +486,15 @@ h3 {
   transform: translateY(-100%);
 }
 #txtpopup1 {
-  position: absolute;
-  align-items: center;
-  text-align: center;
-  left: 25px;
-  margin-top: -23%;
-  line-height: 91%;
-  justify-content: center;
   color: #404557;
+  font-size: 1em;
+  justify-content: left;
+  align-items: left;
+  text-align: left;
+  margin: auto;
+  margin-top: -1em;
+  margin-left: -0.5em;
   z-index: 2;
-  font-size: 12pt;
-  padding-right: 15%;
 }
 
 #bottomGreenPopUp {
@@ -707,8 +751,8 @@ canvas {
   border-color: none;
   border: none;
   padding: 0 12%;
-  margin-top: 143%;
-  margin-left: 52%;
+  margin-top: 43%;
+  margin-left: -22%;
 }
 #cadreImgVal {
   position: absolute;
@@ -1078,74 +1122,74 @@ canvas {
 
 #settingsPosition {
   position: absolute;
-  border: 1px solid #d16a5b;
+  border: 0.05em solid #d16a5b;
   color: #d16a5b;
   background-color: #efdfd1;
   font-family: "raleway";
-  font-size: 16pt;
-  border-radius: 5px;
+  font-size: 1em;
+  border-radius: 0.3em;
   margin-top: 85%;
-  margin-left: 10%;
-  padding: 5px;
-  padding-right: 10%;
+
+  padding: 0.2em;
+  padding-right: 4em;
   border-style: solid;
 }
 #settingsMood {
   position: absolute;
-  border: 1px solid #d16a5b;
+  border: 0.05em solid #d16a5b;
   border-style: solid;
   color: #d16a5b;
   background-color: #efdfd1;
   font-family: "raleway";
-  font-size: 16pt;
-  border-radius: 5px;
+  font-size: 1em;
+  border-radius: 0.3em;
   margin-top: 97%;
-  margin-left: 10%;
-  padding: 5px;
-  padding-right: 160px;
+
+  padding: 0.2em;
+  padding-right: 4em;
 }
 #settingcolor {
   position: absolute;
-  border: 1px solid #d16a5b;
+  border: 0.05em solid #d16a5b;
   border-style: solid;
   color: #d16a5b;
   background-color: #efdfd1;
   font-family: "raleway";
-  font-size: 16pt;
-  border-radius: 5px;
+  font-size: 1em;
+  border-radius: 0.3em;
   margin-top: 109%;
-  margin-left: 10%;
-  padding: 5px;
-  padding-right: 90px;
+
+  padding: 0.2em;
+  padding-right: 2em;
 }
 
 #settingAccessories {
   position: absolute;
-  border: 1px solid #d16a5b;
+  border: 0.05em solid #d16a5b;
   border-style: solid;
   color: #d16a5b;
   background-color: #efdfd1;
   font-family: "raleway";
-  font-size: 16pt;
-  border-radius: 5px;
+  font-size: 1em;
+  border-radius: 0.3em;
   margin-top: 121%;
-  margin-left: 10%;
-  padding: 5px;
-  padding-right: 47px;
+
+  padding: 0.2em;
+  padding-right: 1em;
 }
 #settingdonthave {
   position: absolute;
-  border: 1px solid #d16a5b;
+  border: 0.05em solid #d16a5b;
   border-style: solid;
   color: #d16a5b;
   background-color: #efdfd1;
   font-family: "raleway";
-  font-size: 16pt;
-  border-radius: 5px;
+  font-size: 1em;
+  border-radius: 0.3em;
   margin-top: 133%;
-  margin-left: 10%;
-  padding: 5px;
-  padding-right: 62px;
+
+  padding: 0.2em;
+  padding-right: 1em;
 }
 
 #txtindice {
@@ -1153,72 +1197,129 @@ canvas {
   /* background-color: #efdfd1; */
   color: #d16a5b;
   font-family: "raleway";
-  font-size: 16pt;
+  font-size: 1em;
   margin-top: 145%;
-  margin-left: 13%;
+
   z-index: 3;
 }
 #indiceSupp {
   position: absolute;
   color: #d16a5b;
   background-color: #efdfd1;
-  border: 1px solid #d16a5b;
+  border: 0.05em solid #d16a5b;
   border-style: solid;
   font-family: "raleway";
-  font-size: 16pt;
-  border-radius: 5px;
+  font-size: 1em;
+  border-radius: 0.3em;
   margin-top: 152%;
-  margin-left: 10%;
+
   padding: 5px;
-  padding-right: 183px;
-  z-index: -1;
+  padding-right: 6em;
+  z-index: 1;
 }
 /* #page6{
   height: 100vw;
   overflow-x: hidden;
   overflow-y: hidden;
 } */
+
+.page6Flex {
+  display: flex;
+  flex-direction: column;
+  font-family: "Passion One", cursive;
+  width: 100%;
+}
+#flex {
+  /* background-color: rgb(0, 255, 213); */
+  margin-top: -2em;
+}
+
+#flex1 {
+  /* background-color: red; */
+  margin-top: -20em;
+}
+#flex2 {
+  /* background-color: blue; */
+  margin-top: -17em;
+  margin-left: -13em;
+  margin-right: auto;
+}
+#flex3 {
+  /* background-color: red; */
+  margin-left: -27em;
+  margin-top: -20em;
+}
+#flex4 {
+  /* background-color: red; */
+  margin-left: -27em;
+  margin-top: -20em;
+}
+#flex5 {
+  /* background-color: red; */
+  margin-left: -27em;
+  margin-top: -20em;
+}
+#flex6 {
+  /* background-color: red; */
+  margin-left: -27em;
+  margin-top: -20em;
+}
+#flex7 {
+  /* background-color: red; */
+  margin-left: -27em;
+  margin-top: -20em;
+}
+#flex8 {
+  /* background-color: red; */
+  margin-left: -27em;
+  margin-top: -20em;
+}
+#flex9 {
+  /* background-color: red;  */
+  margin-left: -27em;
+  margin-top: -0.2em;
+}
 #creeProfil {
-  position: absolute;
-  margin-top: 40%;
-  margin-left: 10%;
-  line-height: 90%;
-  text-transform: uppercase;
-  font-size: 35pt;
-  z-index: 1;
+  color: #d16a5b;
+  font-size: 2em;
+  justify-content: left;
+  align-items: left;
   text-align: left;
+  margin: auto;
+
+  margin-left: 0.2em;
+  z-index: 2;
 }
 
 #decrisToi {
   color: #404557;
-  font-family: "Passion One", cursive;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
+  font-size: 1em;
+  justify-content: left;
+  align-items: left;
   text-align: left;
-  margin-top: 70%;
-  font-size: 13pt;
-  margin-left: 0%;
+  margin: auto;
+
+  margin-left: 0.8em;
+  z-index: 2;
 }
 
 #submit {
-  position: absolute;
-  width: 83%;
-  height: 7%;
-  color: #efdfd1;
-  background: #d16a5b;
-  cursor: pointer;
-  font-size: 0.8em;
-  font-family: "Passion One", cursive;
-  border-radius: 20%;
-  outline: none;
-  border: none;
+  display: flex;
   justify-content: center;
-  text-align: center;
   align-items: center;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: #efdfd1;
+  background-color: #d16a5b;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0.9em 6em;
+  width: 14em;
+  border-radius: 0.5em;
+  border: none;
+  /* margin-left: 2em;  */
+  margin-bottom: 2em;
 }
 
 .photo-container {
@@ -1290,22 +1391,22 @@ canvas {
 }
 
 #gorecherche {
-  position: absolute;
-  width: 87%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   color: #404557;
   background-color: #efdfd1;
   cursor: pointer;
-  font-size: 30pt;
-  font-family: "Passion One", cursive;
-  border-radius: 20px;
-  line-height: 50px;
+  font-size: 1em;
+  padding: 0.9em 6em;
+  width: 14em;
+  border-radius: 0.5em;
   border: none;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-family: "Passion One", cursive;
+
 }
 
 #videoelement {
