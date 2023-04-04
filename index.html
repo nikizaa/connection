@@ -78,7 +78,7 @@
       <div class="card2">
 
         <h3>TRÈS BIEN</h3>
-        <h4 id="jouer"> Bravo, le vrai jeu peut commencer </h4>
+        <h4 id="jouer"> Bravo, <br> le vrai jeu peut commencer </h4>
         <h4 id="explication"> Autour de toi se trouvent d'autres joueurs et vous allez devoir vous retrouver </h4>
 
 
@@ -103,28 +103,42 @@
   </div>
   <!-- --------------CHERCHER----------------------->
   <div id="page3" class="bg-color" style="display: none;">
-    <div class="card2">
-      <!-- <img src="./img/whiteGreenCard.png" alt="blueCard" id="whitegreen"> -->
-      <img id="targetImg">
-      <h3 id="pseudo"></h3>
-      <h4 id="textStartdescription">Retrouve ce drôle d'oiseau qui :</h4>
-      <h4 id="description"></h4>
-
+    <div class="page3Flex">
+      <div id="chercheFlex1">
+        <div class="card2">
+          <!-- <img src="./img/whiteGreenCard.png" alt="blueCard" id="whitegreen"> -->
+          <!-- <img id="targetImg"> -->
+          <h3 id="pseudo"></h3>
+          <h4 id="textStartdescription">Retrouve ce drôle d'oiseau qui :</h4>
+          <h4 id="description"></h4>
+        </div>
+      </div>
       <p><button type="button" id="trouve">TROUVÉ</button></p>
 
+
+
       <div id="cToiPopUp">
-        <img src="./img/bottomItsyou.png" alt="bottomCard" id="bottomGreenPopUp">
-        <h4 id="txtpopup1">C'est toi qu'on cherche ! <br>
-          Les utilisateurs vont te prendre en photo en guise de validation </h4>
-
-        <button id="close-button">fermer</button>
-
+        <div id="chercheFlex2">
+          <div id="bottomGreenPopUp">
+            <div id="txtpopup1">
+              <p>C'est toi qu'on cherche ! <br>
+                Les utilisateurs vont te prendre en photo en guise de validation </p>
+            </div>
+          </div>
+        </div>
+        <div id="chercheFlex3">
+          <button id="close-button">fermer</button>
+        </div>
       </div>
+    </div>
 
-      <div id="popUpphoto">
-        <img src="./img/bottomItsyou.png" alt="bottomCard" id="bottomGreenPopUp2">
-        <h4 id="txtpopup2">C'est toi ?</h4>
-        <!-- <button id="close-button2">fermer</button> -->
+    <div id="popUpphoto">
+      <div id="chercheFlex4">
+        <div id="bottomGreenPopUp2">
+          <p id="txtpopup2">C'est toi ?</p>
+        </div>
+      </div>
+      <div id="chercheFlex5">
         <button id="ouvrirButton">Ouvrir</button>
       </div>
     </div>
@@ -133,6 +147,7 @@
   <!-- --------------PHOTOOOO----------------------->
   <div id="page4" class="bg-color" style="display: none;">
     <div id="card">
+      <div class="card2">
       <!-- <img src="./img/whiteBlue.png" alt="blueCard" id="card"> -->
       <h3 id="phototrouver">TU PENSES L'AVOIR TROUVÉ ?</h3>
       <h4 id="prendsunephoto">
@@ -144,7 +159,7 @@
       </button>
       <div id="previewContainer"></div>
 
-
+    </div>
 
       <p><button type="button" id="envoie">ENVOYER</button></p>
 
@@ -154,10 +169,10 @@
   </div>
   <!----------------- SUSPENSE ------------------->
   <div id="page5" class="bg-color" style="display: none;">
-    <div class="card">
+    <div class="card5">
 
-      <img src="./img/cardYellow.png" alt="blueCard" id="card">
-      <h3 id="suspense">SUSPENSE</h3>
+
+      <p id=" ">SUSPENSE</>
       <h4 id="PeutEtreTrouver">Voyons si tu l'as bien trouvé ! </h4>
       <img id="charging" src="./img/charging.png">
       <h4 id="Attente">Tu es en attente de validation </h4>
@@ -232,18 +247,22 @@
   </div>
   <!----------------- VALIDATION ------------------->
   <div id="page11" class="bg-color" style="display: none;">
-    <div class="card">
-      <!-- <img src="./img/whiteBlue.png" alt="blueCard" id="card"> -->
-
-      <h3 id="validation">EST-CE QUE C'EST TOI ?</h3>
-      <h4 id="tuvalides">Cet utilisateur pense t'avoir trouvé</h3>
-        <!-- <img src="./img/cadrephotoVal.png" id="cadreImgVal"> -->
-        <img id="imgRecu">
-        <p><button type="button" id="nonPasMoi">NON </button></p>
-        <p><button type="button" id="ouiCMoi">Oui</button></p>
-
+    <div class="page4Flex">
+      <div class="card">
+        <div id="ValidationFlex1">
+          <p id="validation">EST-CE QUE C'EST TOI ?</p>
+          <p id="tuvalides">Cet utilisateur pense t'avoir trouvé</p>
+        </div>
+        <!-- <img src="./img/cadrephotoVal.png" id="cadreImgVal">
+        <div id="ValidationFlex2">
+          <img id="imgRecu">
+        </div>
+        <div id="ValidationFlex3">
+          <p><button type="button" id="nonPasMoi">NON </button></p>
+          <p><button type="button" id="ouiCMoi">Oui</button></p>
+        </div> -->
+      </div>
     </div>
-
   </div>
   <!----------------- END ------------------->
   <div id="page15" class="bg-color" style="display: none;">
@@ -368,10 +387,10 @@
   <!----------------- WELCOM ------------------->
   <div id="page13" class="bg-color" style="display: none;">
     <div class="card4">
-     
+
       <img id="imgProfil">
-      <h3 id="nomProfil"></h3>
-      <h4 id="bienvenue">Bienvenue à toi</h4>
+      <!-- <h3 id="nomProfil"></h3>
+      <h4 id="bienvenue">Bienvenue à toi</h4> -->
     </div>
     <p><button type="button" id="gorecherche">Go</button></p>
   </div>

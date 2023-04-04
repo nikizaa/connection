@@ -31,7 +31,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  font-family: "Passion One", cursive;
+  /* font-family: "Passion One", cursive; */
 }
 
 #one {
@@ -200,6 +200,24 @@ h4 {
   z-index: 2;
 }
 
+
+
+
+.card5 {
+  display: flex;
+  background-color: #e4a86c;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8em;
+  margin-bottom: 1em;
+  width: 14em;
+  height: 25em;
+  border-radius: 0.5em;
+  z-index: 2;
+}
 .card4 {
   display: flex;
   background-color: #d16a5b;
@@ -251,8 +269,9 @@ h4 {
   margin-left: auto;
   margin-right: auto;
   margin-top: 1em;
-  padding: 4em;
+  padding: 3em;
   z-index: 2;
+  font-family: "Raleway", sans-serif;
 }
 
 #btnless {
@@ -325,11 +344,11 @@ h4 {
 #jouer {
   justify-content: center;
   align-items: center;
-  text-align: left;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
 
-  padding: 4em;
+  padding: 2em;
 }
 #explication {
   justify-content: center;
@@ -337,8 +356,9 @@ h4 {
   text-align: left;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 6em;
-  padding: 4em;
+  margin-top: 8em;
+  padding: 3em;
+  font-family: "Raleway", sans-serif;
 }
 
 #page3 {
@@ -359,6 +379,7 @@ h4 {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-top: -0.25em;
   color: #efdfd1;
   background-color: #d16a5b;
   cursor: pointer;
@@ -422,6 +443,7 @@ h4 {
   margin-top: 43%;
   left: 40%;
   transform: translate(-64%, -54%);
+z-index: -12;
 }
 #chercherStart {
   display: flex;
@@ -430,16 +452,59 @@ h4 {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 14.4em;
   color: #497a72;
   background-color: #efdfd1;
   cursor: pointer;
-  font-size: 1em;
-  padding: 0.9em 6em;
-  width: 14em;
-  border-radius: 0.5em;
+  font-size: 2em;
+  padding: 0.1em 0.1em;
+  width: 7.1em;
+  border-radius: 0.3em;
   border: none;
-  margin-top: 29em;
+  font-family: "Passion One", cursive;
 }
+
+.page3Flex {
+  display: flex;
+  flex-direction: column;
+  font-family: "Passion One", cursive;
+  width: 100%;
+  height: 90%;
+}
+
+#chercheFlex1 {
+  /* background-color: rgb(0, 255, 213);  */
+  margin-top: -2em;
+}
+
+#chercheFlex2 {
+  /* background-color: rgb(255, 255, 213);  */
+  /* margin-top:-1.5em; */
+  height: 7em;
+  margin-left: 1.45em;
+  margin-top: 9em;
+  margin-bottom: -41em;
+}
+
+#chercheFlex3 {
+  /* background-color: red;  */
+  margin-top: 10em;
+  margin-left: -10em;
+}
+#chercheFlex4 {
+  /* background-color: rgb(255, 255, 213);  */
+  /* margin-top:-1.5em; */
+  height: 7em;
+  /* margin-left: 1.45em; */
+  margin-top: 5em;
+}
+#chercheFlex5 {
+  background-color: red;
+
+  margin-top: -2em;
+  margin-bottom: -41em;
+}
+
 #textStartdescription {
   color: #404557;
   font-size: 1em;
@@ -464,130 +529,128 @@ h4 {
 }
 
 #trouve {
-  position: absolute;
-  width: 87%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -0.5em;
   color: #efdfd1;
   background-color: #497a72;
   cursor: pointer;
-  font-size: 30pt;
-  font-family: "Passion One", cursive;
-  border-radius: 20px;
-  line-height: 50px;
+  font-size: 2em;
+  padding: 0.1em 0.1em;
+  width: 7.1em;
+  border-radius: 0.3em;
   border: none;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  margin-top: -32%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-family: "Passion One", cursive;
 }
 #cToiPopUp {
+  display: flex;
   transition: all 0.5s ease;
   transform: translateY(-100%);
+  margin-top: 8em;
 }
 #txtpopup1 {
-  color: #404557;
-  font-size: 1em;
-  justify-content: left;
-  align-items: left;
-  text-align: left;
-  margin: auto;
-  margin-top: -1em;
-  margin-left: -0.5em;
-  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -3em;
+  font-family: raleway;
+  font-size: 0.8em;
 }
 
 #bottomGreenPopUp {
-  position: absolute;
-  margin-top: -214%;
-  width: 100%;
-  z-index: 2;
+  display: flex;
+  background-color: #497a72;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 12em; */
+  width: 14em;
+  height: 8em;
+  border-radius: 0.5em 0.5em 0em 0em;
+  margin-bottom: -4em;
 }
 
 #close-button {
-  position: absolute;
-  width: 50%;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 14.4em; */
   color: #497a72;
   background-color: #efdfd1;
   cursor: pointer;
-  font-size: 14pt;
-  font-family: "Passion One", cursive;
-  border-radius: 15px;
-  line-height: 22px;
+  font-size: 1em;
+
+  width: 5.5em;
+  border-radius: 0.3em;
   border: none;
-  margin-left: 12%;
-  text-align: center;
-  align-items: center;
-  margin-top: -7%;
-  margin-left: 25%;
-  z-index: 2;
-}
-#close-button2 {
-  position: absolute;
-  width: 50%;
-  justify-content: center;
-  color: #497a72;
-  background-color: #efdfd1;
-  cursor: pointer;
-  font-size: 14pt;
   font-family: "Passion One", cursive;
-  border-radius: 15px;
-  line-height: 22px;
-  border: none;
-  margin-left: 12%;
-  text-align: center;
-  align-items: center;
-  margin-top: 28%;
-  margin-left: 25%;
-  z-index: 2;
+  margin-top: 4em;
+  /* margin-left: -28em; */
 }
+
 #popUpphoto {
   transition: all 0.5s ease;
   transform: translateY(-100%);
   z-index: -2;
 }
 #txtpopup2 {
-  position: absolute;
+  display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
-
-  margin-top: -24%;
-  line-height: 10%;
-  justify-content: center;
-  color: #404557;
-  z-index: -2;
-  font-family: "Passion One", cursive;
-  font-size: 14pt;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -3em;
+  font-family: raleway;
+  font-size: 0.8em;
 }
 
 #bottomGreenPopUp2 {
-  position: absolute;
-  margin-top: -216%;
-  width: 100%;
-  z-index: -2;
+  display: flex;
+  background-color: #497a72;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 12em; */
+  width: 14em;
+  height: 8em;
+  border-radius: 0.5em 0.5em 0em 0em;
+  margin-bottom: -4em;
 }
 
 #ouvrirButton {
-  position: absolute;
-  width: 50%;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 14.4em; */
   color: #497a72;
   background-color: #efdfd1;
   cursor: pointer;
-  font-size: 14pt;
-  font-family: "Passion One", cursive;
-  border-radius: 15px;
-  line-height: 22px;
+  font-size: 1em;
+
+  width: 5.5em;
+  border-radius: 0.3em;
   border: none;
-  margin-left: 12%;
-  text-align: center;
-  align-items: center;
-  margin-top: -12%;
-  margin-left: 25%;
-  z-index: -2;
+  font-family: "Passion One", cursive;
+  margin-top: -3em;
+  /* margin-left: -28em; */
 }
 #envoie {
   position: absolute;
@@ -597,13 +660,13 @@ h4 {
   cursor: pointer;
   font-size: 30pt;
   font-family: "Passion One", cursive;
-  border-radius: 20px;
+  border-radius: 0.5em;
   line-height: 50px;
   border: none;
   justify-content: center;
   text-align: center;
   align-items: center;
-  margin-top: 168%;
+  margin-top: 0.5em;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -637,15 +700,230 @@ canvas {
   left: 290px;
 }
 
-#phototrouver {
+
+
+
+#imgRecu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 11em;
+}
+
+#preview {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  margin-top: -33%;
+  margin-left: -2%;
+  border: 0;
+  border-style: none;
+}
+#previewContainer {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  margin-top: 98%;
+  margin-left: 18%;
+}
+
+#cameraInput {
+display: flex;
+align-items: center;
+justify-content: center;
+margin: auto;
+margin-left: -2em;
+  width: 2em;
+  height: 2em;
+ 
+}
+.page4Flex {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  /* font-family: "Passion One", cursive; */
+}
+
+#ValidationFlex1 {
+  display: flex;
+  width: 100%;
+  background-color: yellow;
+  /* margin-left: 8em; */
+}
+
+#ValidationFlex2 {
+  width: 100%;
+  background-color: red;
+}
+#ValidationFlex3 {
+  width: 100%;
+  background-color: blue;
+}
+#validation {
+  color: #e4a86c;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -6em;
+  font-size: 2em;
+  padding: 1em;
+  margin-left: 1em;
+}
+
+#tuvalides {
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8em;
+  padding: 3em;
+  font-family: "Raleway", sans-serif;
+  color: #404557;
+}
+
+#nonPasMoi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 14.4em; */
+  color: #efdfd1;
+  background-color: #e4a86c;
+  cursor: pointer;
+  font-size: 1em;
+
+  width: 5.5em;
+  border-radius: 0.3em;
+  border: none;
+  font-family: "Passion One", cursive;
+  margin-top: 4em;
+  /* margin-left: -28em; */
+}
+
+#ouiCMoi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 14.4em; */
+  color: #efdfd1;
+  background-color: #e4a86c;
+  cursor: pointer;
+  font-size: 1em;
+
+  width: 5.5em;
+  border-radius: 0.3em;
+  border: none;
+  font-family: "Passion One", cursive;
+  margin-top: 4em;
+  /* margin-left: -28em; */
+}
+#cadreImgVal {
+  position: flex;
+align-items: center;
+justify-content: center;
+margin: auto;
+
+  width: 81%;
+
+}
+#demasquer {
+  margin-top: 60%;
+  text-align: center;
+  font-size: 30pt;
+  color: #e4a86c;
+  margin-left: 0%;
+  line-height: 98%;
+}
+
+#back {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 91%;
+  padding: 0px 30px;
+  font-size: 20px;
+  color: #404557;
+  margin-left: 2%;
+  font-family: "Passion One", cursive;
+}
+
+#retourchercher {
+  position: absolute;
+  width: 83%;
+  color: #efdfd1;
+  background-color: #e4a86c;
+  cursor: pointer;
+  font-size: 30pt;
+  font-family: "Passion One", cursive;
+  border-radius: 20px;
+  line-height: 50px;
+  border: none;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-top: 168%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#photoFlex1{
+
+  /* background-color: red; */
+  /* width: 140em; */
+  margin-top: -3em;
+
+  margin-left: 1em;
+  
+}
+#photoFlex2{
+  /* background-color: purple; */
+  margin-top: 20em;
+  margin-left: -10em;
+}
+#photoFlex3{
+  background-color: yellow;
+}#phototrouver {
   color: #e4a86c;
   position: absolute;
-  margin-top: 27%;
+  margin-top: -10em;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 1.8em;
   margin-left: 5px;
   padding: 30px 38px;
   line-height: 95%;
+}
+
+#screnshot {
+  position: absolute;
+  z-index: 3;
+  margin-top: 30em;
+  margin-left: -1em;
+  background-color: #efdfd1;
+  border: none;
+  /* opacity: 0; */
+}
+
+#screnshot img {
+  width: 20%;
+}
+
+#cadreImg {
+  position: absolute;
+  margin-top:-18em;
+  margin-left: 7%;
+  width: 81%;
+  z-index: 2;
 }
 
 #prendsunephoto {
@@ -654,9 +932,9 @@ canvas {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: 61%;
+  margin-top: -15em;
   font-size: 12pt;
-  padding: 0px 37px;
+  padding: 0em 4em;
 }
 
 #vid {
@@ -700,148 +978,25 @@ canvas {
   margin-top: 98%;
   margin-left: 18%;
 }
-#validation {
-  position: absolute;
-  margin-top: 35%;
-  text-align: center;
-  font-size: 34pt;
-  color: #e4a86c;
-  margin-left: 0%;
-  line-height: 98%;
-}
-
-#tuvalides {
-  position: absolute;
-  margin-top: 60%;
-  font-size: 14pt;
-  color: #404557;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  font-family: "Passion One", cursive;
-}
-
-#nonPasMoi {
-  position: absolute;
-  color: #efdfd1;
-  background-color: #e4a86c;
-  cursor: pointer;
-  font-size: 24pt;
-  font-family: "Passion One", cursive;
-  border-radius: 15px;
-  line-height: 50px;
-  list-style: none;
-  border-color: none;
-  border: none;
-  padding: 0 11%;
-  margin-top: 143%;
-  margin-left: 7%;
-}
-
-#ouiCMoi {
-  position: absolute;
-  color: #efdfd1;
-  background-color: #e4a86c;
-  cursor: pointer;
-  font-size: 24pt;
-  font-family: "Passion One", cursive;
-  border-radius: 15px;
-  line-height: 50px;
-  list-style: none;
-  border-color: none;
-  border: none;
-  padding: 0 12%;
-  margin-top: 43%;
-  margin-left: -22%;
-}
-#cadreImgVal {
-  position: absolute;
-  margin-top: 72%;
-  margin-left: 9%;
-  width: 81%;
-  z-index: 2;
-}
-#demasquer {
-  position: absolute;
-  margin-top: 60%;
-  text-align: center;
-  font-size: 30pt;
-  color: #e4a86c;
-  margin-left: 0%;
-  line-height: 98%;
-}
-
-#back {
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-top: 91%;
-  padding: 0px 30px;
-  font-size: 20px;
-  color: #404557;
-  margin-left: 2%;
-  font-family: "Passion One", cursive;
-}
-
-#retourchercher {
-  position: absolute;
-  width: 83%;
-  color: #efdfd1;
-  background-color: #e4a86c;
-  cursor: pointer;
-  font-size: 30pt;
-  font-family: "Passion One", cursive;
-  border-radius: 20px;
-  line-height: 50px;
-  border: none;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  margin-top: 168%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#cadreImg {
-  position: absolute;
-  margin-top: 68%;
-  margin-left: 7%;
-  width: 81%;
-  z-index: 2;
-}
-
-#screnshot {
-  position: absolute;
-  z-index: 3;
-  margin-top: 147%;
-  margin-left: 17%;
-  background-color: #efdfd1;
-  border: none;
-  /* opacity: 0; */
-}
-
-#screnshot img {
-  width: 20%;
-}
-
 #suspense {
   color: #efdfd1;
-  position: absolute;
-  margin-top: 50%;
+
+
   text-align: center;
-  font-size: 34pt;
-  margin-left: 16%;
+  margin: auto;
+  justify-content: center;
+  font-size: 2em;
+  margin-top: 1em;
 }
 #PeutEtreTrouver {
-  position: absolute;
+ 
   font-family: "Passion One", cursive;
-  font-size: 15pt;
+  font-size: 1em;
   color: #404557;
   justify-content: center;
   text-align: center;
   align-items: center;
-  top: 40%;
+  margin-top: -10em;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 0;
@@ -849,19 +1004,21 @@ canvas {
 #charging {
   position: absolute;
   align-items: center;
+  justify-items: center;
+  justify-content: center;
+
   width: 40%;
-  margin-top: 90%;
-  margin-left: 30%;
+
 }
 
 #Attente {
   position: absolute;
-  font-size: 15px;
+  font-size: 1em;
   color: #404557;
   justify-content: center;
   text-align: center;
   align-items: center;
-  top: 70%;
+  margin-top: 22em;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 0;
@@ -1313,13 +1470,12 @@ canvas {
   color: #efdfd1;
   background-color: #d16a5b;
   cursor: pointer;
-  font-size: 1em;
-  padding: 0.9em 6em;
-  width: 14em;
-  border-radius: 0.5em;
+  font-size: 2em;
+  padding: 0.1em 2em;
+  width: 7.1em;
+  border-radius: 0.3em;
   border: none;
-  /* margin-left: 2em;  */
-  margin-bottom: 2em;
+  font-family: "Passion One", cursive;
 }
 
 .photo-container {
@@ -1406,7 +1562,6 @@ canvas {
   border-radius: 0.5em;
   border: none;
   font-family: "Passion One", cursive;
-
 }
 
 #videoelement {

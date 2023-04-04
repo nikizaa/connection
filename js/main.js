@@ -316,33 +316,31 @@ buttonBack.onclick = () => {
 
 
 const names = [{
-  "name": "Maitre pelican feneant",
-  "src": "./img/svg/SVG/pinguin.svg"
+  "name": " pelican feneant",
+  "src": "./img/svg/SVG/PelicanVert.svg"
 },
 {
-  "name": "Empreur pingouin dérangé",
-  "src": "./img/svg/pinguin.svg"
+  "name": " pingouin dérangé",
+  "src": "./img/svg/SVG/PinguinVert.svg",
 },
 {
-  "name": "Princesse poule argnieuse",
-  "src": "./img/PouleVertG.png"
+  "name": " poule argnieuse",
+  "src":  "./img/svg/SVG/PouleVert.svg",
 },
 {
-  "name": " Docteur Aigle troublé",
-  "src": "./img/aigleVertG.png"
+  "name": "  Aigle troublé",
+  "src": "./img/svg/SVG/AigleVert.svg",
 },
 {
-  "name": "Princesse autruche robuste",
-  "src": "./img/autrucheVertG.png"
+  "name": " autruche robuste",
+  "src": "./img/svg/SVG/AutrucheVert.svg"
 },
 {
-  "name": "Duc hibou bourru",
+  "name": " hibou bourru",
   "src": "./img/HibbouVertG.png"
-
-
 },
 {
-  "name": "Colonel canard cruel",
+  "name": " canard cruel",
   "src": "./img/CanardVertG.png"
 }
 
