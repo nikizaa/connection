@@ -34,11 +34,20 @@ body {
   margin-left: 0%;
 }
 
+#waazo{
+  position: absolute;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+
+}
+
 #intro1 {
+  position: absolute;
   text-align: center;
   font-size: 20px;
   padding: 0% 10%;
-  margin-top: -8%;
+  margin-top: 70%;
   font-family: "Raleway", sans-serif;
 }
 
@@ -55,6 +64,7 @@ h4 {
   align-items: center;
   left: 38%;
   width: 20%;
+  margin-top: 80%;
 }
 /* 
 .card {
