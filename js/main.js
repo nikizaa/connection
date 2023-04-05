@@ -401,16 +401,16 @@ const names = [{
 ]
 
 
-// function setDescription () {
-//   const description = document.getElementById("description")
-//   let s = "";
-//   const pseudo = document.getElementById("pseudo");
-//   Object.keys(target).forEach((key) => {
-//     if (key != "name" && key != "id" && key != "trouver" && key != "winner")
-//       s += "<p>" + target[key] + "</p>"
-//   })
-//   description.innerHTML = s;
-//   pseudo.innerText = names[target["name"]].name;
-//   const targetImg = document.getElementById("targetImg")
-//   targetImg.src = names[target.name].src
-// }
+function setDescription () {
+  const description = document.getElementById("description")
+  let s = "";
+  const pseudo = document.getElementById("pseudo");
+  Object.keys(target).forEach((key) => {
+    if (key != "name" && key != "id" && key != "trouver" && key != "winner")
+      s += "<p>" + target[key] + "</p>"
+  })
+  description.innerHTML = s;
+  pseudo.innerText = names[target["name"]].name;
+  const targetImg = document.getElementById("targetImg")
+  targetImg.src = names[target.name].src
+}
