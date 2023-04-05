@@ -62,11 +62,23 @@ if (!window.sessionStorage.getItem("currentPage")) {
 }
 // displayPage(window.sessionStorage.getItem("currentPage"))
 
+
+const scrollDown = document.getElementById('scrollDown');
+const orangeCard = document.getElementById('commeHere');
+
+// Add a click event listener to the button
+scrollDown.addEventListener('click', () => {
+  // Scroll to the orangeCard element
+  orangeCard.scrollIntoView({ behavior: 'smooth' });
+});
+
 buttonOk.onclick = () => {
 
   displayPage(2);
-  (async () => {
-    target = await getTarget();
+
+  getTarget((val) => {
+    target = val
+
     if (target) {
       const nomProfil = document.getElementById("pseudo1")
       myname = target.name
@@ -75,7 +87,10 @@ buttonOk.onclick = () => {
       nomProfil.innerText = names[myname].name
     }
 
-  })();
+  })
+
+
+
 }
 
 let target = null;
@@ -83,8 +98,25 @@ let target = null;
 buttonStart.onclick = async () => {
   console.log(target);
 
-  if (target) {
+
+
+  if (target && target.id != window.sessionStorage.getItem("id")) {
+
     displayPage(12)
+    onFound((winner) => {
+      if (target.id != window.sessionStorage.getItem("id")) {
+        if (winner) {
+
+          hardReset()
+          bouttonSuivantbravo.onclick = () => {
+            displayPage(6)
+          }
+          displayPage(7)
+        } else {
+          displayPage(9)
+        }
+      }
+    }, window.sessionStorage.getItem("id"))
 
   } else {
     displayPage(6)
@@ -94,33 +126,25 @@ buttonStart.onclick = async () => {
 
 chercherStart.onclick = () => {
 
+  const description = document.getElementById("description")
+  let s = "";
+  const pseudo = document.getElementById("pseudo");
+  Object.keys(target).forEach((key) => {
+    if (key != "name" && key != "id" && key != "trouver" && key != "winner")
+      s += "<p>" + target[key] + "</p>"
+  })
+  description.innerHTML = s;
+  pseudo.innerText = names[target["name"]].name;
+  const targetImg = document.getElementById("targetImg")
+  targetImg.src = names[target.name].src
   if (target.id == window.sessionStorage.getItem("id")) {
-    const description = document.getElementById("description")
-    let s = "";
-    const pseudo = document.getElementById("pseudo");
-    Object.keys(target).forEach((key) => {
-      if (key != "name" && key != "id")
-        s += "<p>" + target[key] + "</p>"
-    })
-    description.innerHTML = s;
-    pseudo.innerText = names[target["name"]].name;
-    const targetImg = document.getElementById("targetImg")
-    targetImg.src = names[target.name].src
-    // if(targ)
+
     displayPage(nextPage)
     buttontrouve.style.display = "none"
   } else {
     cToiPopUp.style.display = "none";
 
-    const description = document.getElementById("description")
-    let s = "";
-    const pseudo = document.getElementById("pseudo");
-    Object.keys(target).forEach((key) => {
-      if (key != "name" && key != "id")
-        s += "<p>" + target[key] + "</p>"
-    })
-    description.innerHTML = s;
-    pseudo.innerText = names[target["name"]].name;
+
     const targetImg = document.getElementById("targetImg")
     targetImg.src = names[target.name].src
   }
@@ -136,9 +160,14 @@ closeButton.addEventListener("click", function () {
   } else {
     cToiPopUp.style.transform = 'translateY(-100%)';
     cToiPopUp.style.display = 'none';
+
+    console.log("teste")
     listenTrouverTarget(async (Cid) => {
       const url = await downloadImage(Cid)
       nonPasMoi.onclick = () => {
+
+        popUp.style.display = 'none';
+
         notFound();
         displayPage(3)
       }
@@ -151,6 +180,8 @@ closeButton.addEventListener("click", function () {
       popUp.style.display = "block"
 
       ouvrirButton.onclick = () => {
+
+
         const imgRecu = document.getElementById("imgRecu");
         imgRecu.src = url;
         displayPage(11);
@@ -218,7 +249,8 @@ buttonenvoie.onclick = () => {
       imgData == null;
       listenFound((exists) => {
 
-        console.log(vals);
+
+
         if (!exists) {
           displayPage(8)
           const page8 = document.getElementById('page8');
@@ -226,15 +258,22 @@ buttonenvoie.onclick = () => {
 
         }
 
-      })
+      }, window.sessionStorage.getItem("id"))
+
     })
   }
+}
+
+
+gorecherche.onclick = () => {
+  displayPage(12);
 }
 
 creataccount.onsubmit = async function (e) {
 
   e.preventDefault()
   let data = {}
+
 
   for (let input of e.target) {
     if (input.name) {
@@ -257,7 +296,6 @@ creataccount.onsubmit = async function (e) {
   data["id"] = window.sessionStorage.getItem("id");
 
 
-  target = await getTarget();
   if (target) {
     const nomProfil = document.getElementById("pseudo1")
     myname = target.name
@@ -286,37 +324,44 @@ creataccount.onsubmit = async function (e) {
 
 }
 
+buttonBack.onclick = () => {
+  displayPage(3);
+}
+
+
 
 
 
 const names = [{
-  "name": "Maitre pelican feneant",
-  "src": "./img/PelicanVertG.png"
+  "name": " pelican feneant",
+
+  "src": "./img/svg/SVG/PelicanVert.svg"
 },
 {
-  "name": "Empreur pingouin dérangé",
-  "src": "./img/pinguinVertG.png"
+  "name": " pingouin dérangé",
+  "src": "./img/svg/pingouinVert.svg"
+
 },
 {
-  "name": "Princesse poule argnieuse",
+  "name": " poule argnieuse",
   "src": "./img/PouleVertG.png"
 },
 {
-  "name": " Docteur Aigle troublé",
+  "name": "  Aigle troublé",
   "src": "./img/aigleVertG.png"
 },
 {
-  "name": "Princesse autruche robuste",
+  "name": " autruche robuste",
   "src": "./img/autrucheVertG.png"
 },
 {
-  "name": "Duc hibou bourru",
+  "name": " hibou bourru",
   "src": "./img/HibbouVertG.png"
 
 
 },
 {
-  "name": "Colonel canard cruel",
+  "name": " canard cruel",
   "src": "./img/CanardVertG.png"
 }
 

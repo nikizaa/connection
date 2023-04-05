@@ -58,15 +58,14 @@ signInAnonymously(auth).then(() => {
   console.log("All good, you're signed in.");
 });
 
-const partieId = "p1" 
+
+const partieId = "p1"
 let path = ref(DATABASE, `data/wrong`);
-let refTarget =ref(DATABASE, `/${partieId}/target`)
+let refTarget = ref(DATABASE, `/${partieId}/target`)
 let refQueue = ref(DATABASE, `/${partieId}/queue`)
-let refTrouver = ref(DATABASE, `/${partieId}/trouver`)
-let refBasic =  ref(DATABASE, `/${partieId}`)
-let refTrouver2 = ref(DATABASE, "/trouver")
-let refSlash = ref(DATABASE, "/")
-let refWinner = ref(DATABASE, `/winner`)
+let refTrouver = ref(DATABASE, `/${partieId}/target/trouver`)
+let refWinner = ref(DATABASE, `/${partieId}/target/winner`)
+
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -84,18 +83,15 @@ onAuthStateChanged(auth, (user) => {
       id = window.sessionStorage.getItem("id")
     }
 
-    window.getTarget = () => {
-      return new Promise((resolve) => {
 
-        onValue(refTarget, (snapshot) => {
-          const val = snapshot.val();
-          console.log(val);
-          resolve(val)
+    window.getTarget = (callback) => {
 
-        });
-      })
+      onValue(refTarget, (snapshot) => {
+        const val = snapshot.val();
+        console.log(val);
+        callback(val)
 
-
+      });
     }
     window.setQueue = (objet) => {
       return new Promise((resolve) => {
@@ -109,20 +105,26 @@ onAuthStateChanged(auth, (user) => {
           resolve(true)
 
 
+
         });
       })
     }
 
 
+
     window.addTarget = (objet) => {
       return new Promise((resolve) => {
-        const path = refTarget ;
-        set(path, objet);
-        const path2 = refTrouver;
-        set(path2, "[]");
-        const path3 = refQueue;
-        set(path3, "[]");
-        resolve(true)
+
+        set(refTarget, objet);
+
+        set(refTrouver, "[]");
+
+        get(refQueue).then(snapshot => {
+          if (!snapshot.exists()) {
+            set(refQueue, "[]");
+          }
+          resolve(true)
+        })
 
       })
     }
@@ -154,9 +156,11 @@ onAuthStateChanged(auth, (user) => {
       uploadBytes(imgRef, img).then(() => {
 
         val.push(_id);
-        const path = refTarget;
+
+
         console.log("uploaded", _id)
-        update(path, { "trouver": val }).then(() => {
+        update(refTarget, { "trouver": val }).then(() => {
+
           callback()
         })
 
@@ -183,13 +187,19 @@ onAuthStateChanged(auth, (user) => {
 
 window.listenTrouverTarget = (callback) => {
 
-  onValue(refBasic, (snapshot) => {
+
+
+  onValue(refTrouver, (snapshot) => {
+
     if (snapshot.exists()) {
       console.log(snapshot.val())
       let val = snapshot.val()
       if (typeof (val) == "string") {
         val = JSON.parse(val)
       }
+
+      console.log(val);
+
       if (val.length > 0) {
 
         callback(val[0], val)
@@ -202,7 +212,9 @@ window.listenTrouverTarget = (callback) => {
 
 };
 
-window.listenFound = (callback, _id = id) => {
+
+window.listenFound = (callback, _id) => {
+
 
   onValue(refTrouver, (snapshot) => {
     if (snapshot.exists()) {
@@ -212,9 +224,10 @@ window.listenFound = (callback, _id = id) => {
         val = JSON.parse(val)
       }
       if (val.indexOf(_id) != -1) {
-        callback(false)
-      } else {
         callback(true)
+      } else {
+        callback(false)
+
       }
 
     }
@@ -224,37 +237,76 @@ window.listenFound = (callback, _id = id) => {
 
 window.notFound = () => {
 
-  const path = refTrouver2
-  get(path).then((snapshot) => {
+  get(refTrouver).then((snapshot) => {
+
     let val = snapshot.val()
     if (typeof (val) == "string") {
       val = JSON.parse(val)
     }
+
+    console.log(val);
     val.shift()
-    update(refSlash, { "trouver": JSON.stringify(val) })
+    console.log(val)
+    update(refTarget, { "trouver": JSON.stringify(val) })
+
   })
 
 }
 
 
-window.onFound = (callback) => {
+
+window.onFound = (callback, _id) => {
+
   onValue(refWinner, (snapshot) => {
     if (snapshot.exists()) {
       const val = snapshot.val();
-      callback(val)
-    } else {
-      callback(null)
+      console.log(val)
+      if (val.length > 0) {
+        callback(val === _id)
+
+      }
+
     }
   });
 }
 
 window.found = (_id) => {
-  update(refSlash, { "winner": _id }).then(() => {
+
+  update(refTarget, { "winner": _id }).then(() => {
+
     callback(_id)
   })
 
 
 }
+
+
+window.softReset = () => {
+  off(refTarget)
+  off(refTrouver)
+  off(refWinner)
+  refTarget = ref(DATABASE, `/${partieId}/target`)
+  refQueue = ref(DATABASE, `/${partieId}/queue`)
+  refTrouver = ref(DATABASE, `/${partieId}/target/trouver`)
+  refWinner = ref(DATABASE, `/${partieId}/target/winner`)
+}
+
+window.hardReset = () => {
+  softReset();
+  get(refQueue).then((snapshot) => {
+    let val = snapshot.val()
+    if (typeof (val) == "string") {
+      val = JSON.parse(val)
+    }
+    const nextTarget = val.unshift()
+
+    addTarget(nextTarget)
+
+    update(refQueue, JSON.stringify(val));
+
+  })
+}
+
 
 
 // const info = 'This is some information that I want to save.';
