@@ -54,7 +54,6 @@ function displayPage(num_page, callback) {
   }
   if (callback)
     callback()
-
 }
 
 function decrement() {
@@ -116,59 +115,56 @@ const listenGetTarget = () => {
 }
 
 buttonOk.onclick = () => {
-
   displayPage(2);
-
-  listenGetTarget();
 }
 
 let target = null;
 
-buttonStart.onclick = async () => {
-  console.log(target);
-
-
-
-  if (target && target.id != window.sessionStorage.getItem("id")) {
-
+async function Page6() {
+  target = await getTarget();
+  if(target) {
+    setDescription();
+    if(target.id == window.sessionStorage.getItem("id")) {
+      displayPage(13);
+      return;
+    }
+    setDescription();
     displayPage(12)
-    onFound((winner) => {
+    onFound(async(winner) => {
       if (target.id != window.sessionStorage.getItem("id")) {
-          if (winner) {
-            bouttonSuivantbravo.onclick = () => {
-              displayPage(6)
-            }
-            displayPage(7)
-          } else {
-            displayPage(9)
+        
+        if (winner) {
+          bouttonSuivantbravo.onclick = () => {
+            Page6();
           }
-
-          softReset()
-          listenGetTarget();
+          displayPage(7)
+        } else {
+          buttonBack.onclick = () => {
+            Page6();
+          }
+          displayPage(9)
+        }
+        
+        target = null;
+        await softReset();
       }
-    }, window.sessionStorage.getItem("id"))
-
-  } else {
-    displayPage(6)
-
+    }, window.sessionStorage.getItem('id'));
   }
+  else 
+  {
+    displayPage(6);
+  }
+}
+
+buttonStart.onclick = async () => {
+  Page6();
 }
 
 chercherStart.onclick = () => {
   if(!target) {
     return;
   }
-  const description = document.getElementById("description")
-  let s = "";
-  const pseudo = document.getElementById("pseudo");
-  Object.keys(target).forEach((key) => {
-    if (key != "name" && key != "id" && key != "trouver" && key != "winner")
-      s += "<p>" + target[key] + "</p>"
-  })
-  description.innerHTML = s;
-  pseudo.innerText = names[target["name"]].name;
-  const targetImg = document.getElementById("targetImg")
-  targetImg.src = names[target.name].src
+  
   if (target.id == window.sessionStorage.getItem("id")) {
 
     displayPage(nextPage)
@@ -203,11 +199,10 @@ closeButton.addEventListener("click", function () {
         notFound();
         displayPage(3)
       }
-      ouiCMoi.onclick = () => {
-        found(Cid);
-        listenGetTarget();
+      ouiCMoi.onclick = async () => {
+        await found(Cid);
         retourchercher.onclick = e => {
-          displayPage(6);
+          Page6();
         }
         displayPage(15)
       }
@@ -341,7 +336,7 @@ creataccount.onsubmit = async function (e) {
 
   if (!target) {
     await addTarget(data);
-    displayPage(13);
+    Page6();
 
   } else {
     console.log(target);
@@ -357,6 +352,7 @@ creataccount.onsubmit = async function (e) {
 buttonBack.onclick = () => {
   displayPage(3);
 }
+
 
 
 
@@ -403,3 +399,18 @@ const names = [{
 
 
 ]
+
+
+function setDescription () {
+  const description = document.getElementById("description")
+  let s = "";
+  const pseudo = document.getElementById("pseudo");
+  Object.keys(target).forEach((key) => {
+    if (key != "name" && key != "id" && key != "trouver" && key != "winner")
+      s += "<p>" + target[key] + "</p>"
+  })
+  description.innerHTML = s;
+  pseudo.innerText = names[target["name"]].name;
+  const targetImg = document.getElementById("targetImg")
+  targetImg.src = names[target.name].src
+}
