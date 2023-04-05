@@ -57,6 +57,36 @@ function displayPage(num_page, callback) {
     callback()
 
 }
+
+function decrement() {
+  // Increment counter
+  if (value > 0) {
+    value = counter--
+  }
+
+  output.innerText = value
+}
+function increment() {
+  // Increment counter
+  value = counter++
+  output.innerText = value
+}
+
+function clickGodown(){
+  const scrollDown = document.getElementById('scrollDown');
+  const orangeCard = document.getElementById('commeHere');
+  
+  // Add a click event listener to the button
+  scrollDown.addEventListener('click', () => {
+    // Scroll to the orangeCard element
+    orangeCard.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+// Output the increment value for every click
+buttonadd.onclick = increment
+buttonless.onclick = decrement
+
+
 if (!window.sessionStorage.getItem("currentPage")) {
   window.sessionStorage.setItem("currentPage", 1)
 }
@@ -339,30 +369,41 @@ const names = [{
 },
 {
   "name": " pingouin dérangé",
-  "src": "./img/svg/pingouinVert.svg"
 
+  "src": "./img/svg/SVG/PingouinVert.svg",
 },
 {
   "name": " poule argnieuse",
-  "src": "./img/PouleVertG.png"
+  "src":  "./img/svg/SVG/PouleVert.svg",
 },
 {
   "name": "  Aigle troublé",
-  "src": "./img/aigleVertG.png"
+  "src": "./img/svg/SVG/AigleVert.svg",
 },
 {
   "name": " autruche robuste",
-  "src": "./img/autrucheVertG.png"
+  "src": "./img/svg/SVG/autrucheVerte.svg"
 },
 {
-  "name": " hibou bourru",
-  "src": "./img/HibbouVertG.png"
-
-
+  "name": "inséparable séparé",
+  "src": "./img/svg/SVG/InseparableVert.svg"
 },
+
+
 {
-  "name": " canard cruel",
-  "src": "./img/CanardVertG.png"
+
+  "name": "Rouge Gorge Alourdi",
+  "src": "./img/svg/SVG/GorgeVert.svg"
+},
+
+{
+  "name": "Hibou bourru",
+  "src": "./img/svg/SVG/HibouVert.svg"
+},
+
+{
+  "name": "Rouge Gorge Alourdi",
+  "src": "./img/svg/SVG/GorgeVert.svg"
 }
 
 
