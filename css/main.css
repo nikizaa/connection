@@ -761,16 +761,17 @@ margin-left: -2em;
   /* background-color: blue; */
 }
 #validation {
-  color: #e4a86c;
+  color: #d16a5b;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -6em;
+  margin-top: 1em;
+  margin-left: 3em;
   font-size: 2em;
   padding: 1em;
-  margin-left: 1em;
+  margin-left: 3em;
 }
 
 #tuvalides {
@@ -802,7 +803,8 @@ margin-left: -2em;
   border-radius: 0.3em;
   border: none;
   font-family: "Passion One", cursive;
-  margin-top: 4em;
+  margin-top: -10em;
+  margin-right: 4em;
   /* margin-left: -28em; */
 }
 
@@ -823,7 +825,8 @@ margin-left: -2em;
   border-radius: 0.3em;
   border: none;
   font-family: "Passion One", cursive;
-  margin-top: 4em;
+  margin-top: -8em;
+  margin-right: 4em;
   /* margin-left: -28em; */
 }
 #cadreImgVal {
@@ -871,7 +874,7 @@ margin: auto;
   justify-content: center;
   text-align: center;
   align-items: center;
-  margin-top: 168%;
+  margin-top: 10em;
   left: 50%;
   transform: translate(-50%, -50%);
 }
