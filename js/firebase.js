@@ -84,14 +84,14 @@ onAuthStateChanged(auth, (user) => {
     }
 
 
-    window.getTarget = (callback) => {
-
-      onValue(refTarget, (snapshot) => {
-        const val = snapshot.val();
-        console.log(val);
-        callback(val)
-
-      });
+    window.getTarget = () => {
+      return new Promise((resolve, reject) => 
+        get(refTarget).then (snapshot => {
+          const val = snapshot.val();
+          console.log(val);
+          resolve(val)
+        })
+      );
     }
     window.setQueue = (objet) => {
       return new Promise((resolve) => {
@@ -267,46 +267,51 @@ window.onFound = (callback, _id) => {
 }
 
 window.found = (_id) => {
-
-  update(refTarget, { "winner": _id }).then(() => {
-    hardReset();
-    softReset();
-  })
-
-
+  return new Promise((resolve, reject) =>
+    update(refTarget, { "winner": _id }).then( async() => {
+      await hardReset();
+      await softReset();
+      resolve("done");
+    })
+  )
 }
 
 
 window.softReset = () => {
-  off(refTarget)
-  off(refTrouver)
-  off(refWinner)
-  refTarget = ref(DATABASE, `/${partieId}/target`)
-  refQueue = ref(DATABASE, `/${partieId}/queue`)
-  refTrouver = ref(DATABASE, `/${partieId}/target/trouver`)
-  refWinner = ref(DATABASE, `/${partieId}/target/winner`)
+  return new Promise(async (resolve, reject) => {
+    await off(refTarget)
+    await off(refTrouver)
+    await off(refWinner)
+    refTarget = ref(DATABASE, `/${partieId}/target`)
+    refQueue = ref(DATABASE, `/${partieId}/queue`)
+    refTrouver = ref(DATABASE, `/${partieId}/target/trouver`)
+    refWinner = ref(DATABASE, `/${partieId}/target/winner`)
+    resolve("done");
+  })
 }
 
 window.hardReset = (callback) => {
-  get(refQueue).then(async (snapshot) => {
-    let val = snapshot.val()
-    if (typeof (val) == "string") {
-      val = JSON.parse(val)
-    }
+  return new Promise((resolve, reject) => {
+    get(refQueue).then(async (snapshot) => {
+      let val = snapshot.val()
+      if (typeof (val) == "string") {
+        val = JSON.parse(val)
+      }
 
-    console.log("here ", val);
-    if(val.length > 0){
-      const nextTarget = val.unshift()
-      await addTarget(nextTarget);
-      update(refQueue, JSON.stringify(val)).then(() => {
-        callback(nextTarget);
-      });
-    }
-    else {
-      set(refTarget, null)
-      //callback(null);
-    }
-  })
+      console.log("here ", val);
+      if(val.length > 0){
+        const nextTarget = val.unshift()
+        await addTarget(nextTarget);
+        update(refQueue, JSON.stringify(val)).then(() => {
+          resolve("done")
+        });
+      }
+      else {
+        await set(refTarget, null);
+        resolve("done");
+      }
+    })
+  });
 }
 
 
