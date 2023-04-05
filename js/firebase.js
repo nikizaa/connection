@@ -58,6 +58,7 @@ signInAnonymously(auth).then(() => {
   console.log("All good, you're signed in.");
 });
 
+
 const partieId = "p1"
 let path = ref(DATABASE, `data/wrong`);
 let refTarget = ref(DATABASE, `/${partieId}/target`)
@@ -82,14 +83,15 @@ onAuthStateChanged(auth, (user) => {
       id = window.sessionStorage.getItem("id")
     }
 
-    window.getTarget = (callback) => {
 
-      onValue(refTarget, (snapshot) => {
-        const val = snapshot.val();
-        console.log(val);
-        callback(val)
-
-      });
+    window.getTarget = () => {
+      return new Promise((resolve, reject) => 
+        get(refTarget).then (snapshot => {
+          const val = snapshot.val();
+          console.log(val);
+          resolve(val)
+        })
+      );
     }
     window.setQueue = (objet) => {
       return new Promise((resolve) => {
@@ -101,26 +103,28 @@ onAuthStateChanged(auth, (user) => {
           console.log(val);
           set(ref(DATABASE, `/${partieId}/queue`), JSON.stringify(val))
           resolve(true)
-
-
         });
       })
     }
 
 
+
     window.addTarget = (objet) => {
       return new Promise((resolve) => {
 
-        set(refTarget, objet);
+        set(refTarget, objet).then(() => {
+          set(refTrouver, "[]");
+          
+          get(refQueue).then(snapshot => {
+            if (!snapshot.exists()) {
+              set(refQueue, "[]");
+            }
+            resolve(true)
+          })
+        });
+        
+        
 
-        set(refTrouver, "[]");
-
-        get(refQueue).then(snapshot => {
-          if (!snapshot.exists()) {
-            set(refQueue, "[]");
-          }
-          resolve(true)
-        })
       })
     }
 
@@ -152,8 +156,10 @@ onAuthStateChanged(auth, (user) => {
 
         val.push(_id);
 
+
         console.log("uploaded", _id)
         update(refTarget, { "trouver": val }).then(() => {
+
           callback()
         })
 
@@ -180,14 +186,19 @@ onAuthStateChanged(auth, (user) => {
 
 window.listenTrouverTarget = (callback) => {
 
+
+
   onValue(refTrouver, (snapshot) => {
+
     if (snapshot.exists()) {
       console.log(snapshot.val())
       let val = snapshot.val()
       if (typeof (val) == "string") {
         val = JSON.parse(val)
       }
+
       console.log(val);
+
       if (val.length > 0) {
 
         callback(val[0], val)
@@ -200,7 +211,9 @@ window.listenTrouverTarget = (callback) => {
 
 };
 
+
 window.listenFound = (callback, _id) => {
+
 
   onValue(refTrouver, (snapshot) => {
     if (snapshot.exists()) {
@@ -214,25 +227,29 @@ window.listenFound = (callback, _id) => {
       } else {
         callback(false)
       }
-
     }
   })
 
 };
 
 window.notFound = () => {
+
   get(refTrouver).then((snapshot) => {
+
     let val = snapshot.val()
     if (typeof (val) == "string") {
       val = JSON.parse(val)
     }
+
     console.log(val);
     val.shift()
     console.log(val)
     update(refTarget, { "trouver": JSON.stringify(val) })
+
   })
 
 }
+
 
 
 window.onFound = (callback, _id) => {
@@ -243,45 +260,60 @@ window.onFound = (callback, _id) => {
       console.log(val)
       if (val.length > 0) {
         callback(val === _id)
-
       }
+
     }
   });
 }
 
 window.found = (_id) => {
-  update(refTarget, { "winner": _id }).then(() => {
-    callback(_id)
-  })
-
-
+  return new Promise((resolve, reject) =>
+    update(refTarget, { "winner": _id }).then( async() => {
+      await hardReset();
+      await softReset();
+      resolve("done");
+    })
+  )
 }
+
 
 window.softReset = () => {
-  off(refTarget)
-  off(refTrouver)
-  off(refWinner)
-  refTarget = ref(DATABASE, `/${partieId}/target`)
-  refQueue = ref(DATABASE, `/${partieId}/queue`)
-  refTrouver = ref(DATABASE, `/${partieId}/target/trouver`)
-  refWinner = ref(DATABASE, `/${partieId}/target/winner`)
-}
-
-window.hardReset = () => {
-  softReset();
-  get(refQueue).then((snapshot) => {
-    let val = snapshot.val()
-    if (typeof (val) == "string") {
-      val = JSON.parse(val)
-    }
-    const nextTarget = val.unshift()
-
-    addTarget(nextTarget)
-
-    update(refQueue, JSON.stringify(val));
-
+  return new Promise(async (resolve, reject) => {
+    await off(refTarget)
+    await off(refTrouver)
+    await off(refWinner)
+    refTarget = ref(DATABASE, `/${partieId}/target`)
+    refQueue = ref(DATABASE, `/${partieId}/queue`)
+    refTrouver = ref(DATABASE, `/${partieId}/target/trouver`)
+    refWinner = ref(DATABASE, `/${partieId}/target/winner`)
+    resolve("done");
   })
 }
+
+window.hardReset = (callback) => {
+  return new Promise((resolve, reject) => {
+    get(refQueue).then(async (snapshot) => {
+      let val = snapshot.val()
+      if (typeof (val) == "string") {
+        val = JSON.parse(val)
+      }
+
+      console.log("here ", val);
+      if(val.length > 0){
+        const nextTarget = val.unshift()
+        await addTarget(nextTarget);
+        update(refQueue, JSON.stringify(val)).then(() => {
+          resolve("done")
+        });
+      }
+      else {
+        await set(refTarget, null);
+        resolve("done");
+      }
+    })
+  });
+}
+
 
 
 // const info = 'This is some information that I want to save.';
