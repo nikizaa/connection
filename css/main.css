@@ -1028,23 +1028,21 @@ margin: auto;
 #bravo {
   color: #d16a5b;
   position: absolute;
-  margin-top: 75%;
-  text-align: center;
-  font-size: 36pt;
-  margin-left: 18%;
+  margin-top: -7em;
+  text-align: left;
+  font-size: 34pt;
+  margin-left: 2%;
+  padding: 0 15%;
 }
 
 #bravotxt {
-  color: #404557;
+  color: #d16a5b;
   position: absolute;
-  align-items: center;
-  justify-content: left;
+  margin-top: -7em;
   text-align: left;
-  margin-top: 90%;
-  font-size: 16pt;
-  padding: 0px 35px;
-  font-size: 20px;
-  margin-left: 7%;
+  font-size: 34pt;
+  margin-left: 2%;
+  padding: 0 15%;
 }
 
 #bonjourtxt {
@@ -1157,16 +1155,13 @@ margin: auto;
   padding: 0 15%;
 }
 #toolateD {
-  color: #404557;
+   color: #d16a5b;
   position: absolute;
-  align-items: center;
-  justify-content: left;
+  margin-top: -7em;
   text-align: left;
-  margin-top: -8em;
-  font-size: 16pt;
-  padding: 0px 55px;
-  font-size: 20px;
-  margin-left: 4%;
+  font-size: 34pt;
+  margin-left: 2%;
+  padding: 0 15%;
 }
 #dommage {
   color: #d16a5b;
