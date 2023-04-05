@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   z-index: -100;
-  /* display: flex;
+  /* display: flex;tro
   justify-content: center; */
 }
 .bg-color {
@@ -1062,42 +1062,40 @@ margin: auto;
   margin-left: 7%;
 }
 #suivantbravo {
-  position: absolute;
-  width: 50%;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   color: #efdfd1;
   background-color: #d16a5b;
   cursor: pointer;
-  font-size: 24pt;
-  font-family: "Passion One", cursive;
-  border-radius: 15px;
-  padding-left: 24%;
-  padding-right: 62%;
-  line-height: 50px;
+  font-size: 2em;
+  padding: 0.1em 0.1em;
+  width: 7.1em;
+  border-radius: 0.3em;
   border: none;
-  margin-left: 6%;
-  text-align: left;
-  align-items: center;
-  margin-top: 180%;
+  margin-top: 15em;
+  font-family: "Passion One", cursive;
 }
 #suivanttoLate {
-  position: absolute;
-  width: 50%;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   color: #efdfd1;
   background-color: #d16a5b;
   cursor: pointer;
-  font-size: 24pt;
-  font-family: "Passion One", cursive;
-  border-radius: 15px;
-  padding-left: 24%;
-  padding-right: 62%;
-  line-height: 50px;
+  font-size: 2em;
+  padding: 0.1em 0.1em;
+  width: 7.1em;
+  border-radius: 0.3em;
+  margin-top: 15em;
   border: none;
-  margin-left: 6%;
-  text-align: left;
-  align-items: center;
-  margin-top: 155%;
+  font-family: "Passion One", cursive;
 }
 #nop {
   color: #d16a5b;
@@ -1133,29 +1131,28 @@ margin: auto;
   font-family: "Passion One", cursive;
 }
 #back {
-  position: absolute;
-  width: 50%;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   color: #efdfd1;
   background-color: #d16a5b;
   cursor: pointer;
-  font-size: 24pt;
-  font-family: "Passion One", cursive;
-  border-radius: 15px;
-  padding-left: 24%;
-  padding-right: 62%;
-  line-height: 50px;
+  font-size: 2em;
+  padding: 0.1em 0.1em;
+  width: 7.1em;
+  border-radius: 0.3em;
+  margin-top: 15em;
   border: none;
-  margin-left: 6%;
-  text-align: left;
-  align-items: center;
-  margin-top: 185%;
+  font-family: "Passion One", cursive;
 }
 
 #toolate {
   color: #d16a5b;
   position: absolute;
-  margin-top: 80%;
+  margin-top: -7em;
   text-align: left;
   font-size: 34pt;
   margin-left: 2%;
@@ -1167,7 +1164,7 @@ margin: auto;
   align-items: center;
   justify-content: left;
   text-align: left;
-  margin-top: 110%;
+  margin-top: -8em;
   font-size: 16pt;
   padding: 0px 55px;
   font-size: 20px;
@@ -1179,31 +1176,29 @@ margin: auto;
   align-items: center;
   justify-content: left;
   text-align: left;
-  margin-top: 125%;
+  margin-top: -1em;
   font-size: 16pt;
   padding: 0px 40px;
   font-size: 20px;
-  margin-left: 8%;
+  margin-left:-1em;
   font-family: "Passion One", cursive;
 }
 #back {
-  position: absolute;
-  width: 50%;
+  display: flex;
   justify-content: center;
-  color: #efdfd1;
-  background-color: #d16a5b;
-  cursor: pointer;
-  font-size: 24pt;
-  font-family: "Passion One", cursive;
-  border-radius: 15px;
-  padding-left: 24%;
-  padding-right: 62%;
-  line-height: 50px;
-  border: none;
-  margin-left: 6%;
-  text-align: left;
   align-items: center;
-  margin-top: 185%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: #efdfd1;
+  background-color: #497a72;
+  cursor: pointer;
+  font-size: 2em;
+  padding: 0.1em 0.1em;
+  width: 7.1em;
+  border-radius: 0.3em;
+  border: none;
+  font-family: "Passion One", cursive;
 }
 #tontour {
   color: #d16a5b;

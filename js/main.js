@@ -363,25 +363,23 @@ buttonBack.onclick = () => {
 
 
 const names = [{
-  "name": " pelican feneant",
-
+  "name": "pelican feneant",
   "src": "./img/svg/png/pelicanrouge.png"
 },
 {
-  "name": " pingouin dérangé",
-
+  "name": "pingouin dérangé",
   "src": "./img/svg/png/pinguinrouge.png",
 },
 {
-  "name": " poule argnieuse",
+  "name": "poule argnieuse",
   "src":  "./img/svg/png/poulerouge.png",
 },
 {
-  "name": "  Aigle troublé",
+  "name": "Aigle troublé",
   "src": "./img/svg/png/aiglerouge.png",
 },
 {
-  "name": " autruche robuste",
+  "name": "autruche robuste",
   "src": "./img/svg/png/autrucherouge.png"
 },
 {
@@ -401,7 +399,7 @@ const names = [{
 },
 
 {
-  "name": "Rouge Gorge Alourdi",
+  "name": "Peroquet coquet",
   "src": "./img/svg/SVG/peroquetrouge.png"
 }
 
