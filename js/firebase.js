@@ -103,9 +103,6 @@ onAuthStateChanged(auth, (user) => {
           console.log(val);
           set(ref(DATABASE, `/${partieId}/queue`), JSON.stringify(val))
           resolve(true)
-
-
-
         });
       })
     }
@@ -115,16 +112,18 @@ onAuthStateChanged(auth, (user) => {
     window.addTarget = (objet) => {
       return new Promise((resolve) => {
 
-        set(refTarget, objet);
-
-        set(refTrouver, "[]");
-
-        get(refQueue).then(snapshot => {
-          if (!snapshot.exists()) {
-            set(refQueue, "[]");
-          }
-          resolve(true)
-        })
+        set(refTarget, objet).then(() => {
+          set(refTrouver, "[]");
+          
+          get(refQueue).then(snapshot => {
+            if (!snapshot.exists()) {
+              set(refQueue, "[]");
+            }
+            resolve(true)
+          })
+        });
+        
+        
 
       })
     }
@@ -227,9 +226,7 @@ window.listenFound = (callback, _id) => {
         callback(true)
       } else {
         callback(false)
-
       }
-
     }
   })
 
@@ -263,7 +260,6 @@ window.onFound = (callback, _id) => {
       console.log(val)
       if (val.length > 0) {
         callback(val === _id)
-
       }
 
     }
@@ -273,8 +269,8 @@ window.onFound = (callback, _id) => {
 window.found = (_id) => {
 
   update(refTarget, { "winner": _id }).then(() => {
-
-    callback(_id)
+    hardReset();
+    softReset();
   })
 
 
@@ -291,19 +287,25 @@ window.softReset = () => {
   refWinner = ref(DATABASE, `/${partieId}/target/winner`)
 }
 
-window.hardReset = () => {
-  softReset();
-  get(refQueue).then((snapshot) => {
+window.hardReset = (callback) => {
+  get(refQueue).then(async (snapshot) => {
     let val = snapshot.val()
     if (typeof (val) == "string") {
       val = JSON.parse(val)
     }
-    const nextTarget = val.unshift()
 
-    addTarget(nextTarget)
-
-    update(refQueue, JSON.stringify(val));
-
+    console.log("here ", val);
+    if(val.length > 0){
+      const nextTarget = val.unshift()
+      await addTarget(nextTarget);
+      update(refQueue, JSON.stringify(val)).then(() => {
+        callback(nextTarget);
+      });
+    }
+    else {
+      set(refTarget, null)
+      //callback(null);
+    }
   })
 }
 

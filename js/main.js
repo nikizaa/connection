@@ -1,4 +1,3 @@
-
 var URL = window.URL || window.webkitURL;
 let buttonadd = document.getElementById("btnmore")
 let buttonless = document.getElementById("btnless")
@@ -102,13 +101,10 @@ scrollDown.addEventListener('click', () => {
   orangeCard.scrollIntoView({ behavior: 'smooth' });
 });
 
-buttonOk.onclick = () => {
-
-  displayPage(2);
-
+const listenGetTarget = () => {
   getTarget((val) => {
     target = val
-
+    console.log("Target edited ", val);
     if (target) {
       const nomProfil = document.getElementById("pseudo1")
       myname = target.name
@@ -116,11 +112,14 @@ buttonOk.onclick = () => {
       imgProfil.src = names[myname].src
       nomProfil.innerText = names[myname].name
     }
-
   })
+}
 
+buttonOk.onclick = () => {
 
+  displayPage(2);
 
+  listenGetTarget();
 }
 
 let target = null;
@@ -135,16 +134,17 @@ buttonStart.onclick = async () => {
     displayPage(12)
     onFound((winner) => {
       if (target.id != window.sessionStorage.getItem("id")) {
-        if (winner) {
-
-          hardReset()
-          bouttonSuivantbravo.onclick = () => {
-            displayPage(6)
+          if (winner) {
+            bouttonSuivantbravo.onclick = () => {
+              displayPage(6)
+            }
+            displayPage(7)
+          } else {
+            displayPage(9)
           }
-          displayPage(7)
-        } else {
-          displayPage(9)
-        }
+
+          softReset()
+          listenGetTarget();
       }
     }, window.sessionStorage.getItem("id"))
 
@@ -155,7 +155,9 @@ buttonStart.onclick = async () => {
 }
 
 chercherStart.onclick = () => {
-
+  if(!target) {
+    return;
+  }
   const description = document.getElementById("description")
   let s = "";
   const pseudo = document.getElementById("pseudo");
@@ -203,6 +205,10 @@ closeButton.addEventListener("click", function () {
       }
       ouiCMoi.onclick = () => {
         found(Cid);
+        listenGetTarget();
+        retourchercher.onclick = e => {
+          displayPage(6);
+        }
         displayPage(15)
       }
       console.log(url);
@@ -278,9 +284,6 @@ buttonenvoie.onclick = () => {
     uploadImage(imgData, window.sessionStorage.getItem("id"), () => {
       imgData == null;
       listenFound((exists) => {
-
-
-
         if (!exists) {
           displayPage(8)
           const page8 = document.getElementById('page8');
@@ -340,8 +343,8 @@ creataccount.onsubmit = async function (e) {
     await addTarget(data);
     displayPage(13);
 
-
   } else {
+    console.log(target);
     await setQueue(data);
     displayPage(12);
   }
@@ -349,15 +352,11 @@ creataccount.onsubmit = async function (e) {
 
   console.log(page1);
 
-
-
-
 }
 
 buttonBack.onclick = () => {
   displayPage(3);
 }
-
 
 
 
@@ -405,6 +404,3 @@ const names = [{
 
 
 ]
-
-
-
