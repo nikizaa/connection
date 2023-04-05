@@ -498,7 +498,7 @@ z-index: -12;
   margin-top: 5em;
 }
 #chercheFlex5 {
-  background-color: red;
+  /* background-color: red; */
 
   margin-top: -2em;
   margin-bottom: -41em;
@@ -825,7 +825,7 @@ margin-left: -2em;
   border-radius: 0.3em;
   border: none;
   font-family: "Passion One", cursive;
-  margin-top: -8em;
+  margin-top: 4em;
   margin-right: 1em;
   /* margin-left: -28em; */
 }
@@ -852,7 +852,7 @@ margin: auto;
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: 91%;
+  margin-top: 4em;
   padding: 0px 30px;
   font-size: 20px;
   color: #404557;
@@ -949,7 +949,7 @@ margin: auto;
   position: absolute;
   width: 250px;
   height: 250px;
-  margin-top: 80%;
+  margin-top: 1em;
   margin-left: 18%;
 }
 
