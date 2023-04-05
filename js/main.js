@@ -365,45 +365,44 @@ buttonBack.onclick = () => {
 const names = [{
   "name": " pelican feneant",
 
-  "src": "./img/svg/SVG/PelicanVert.svg"
+  "src": "./img/svg/png/pelicanrouge.png"
 },
 {
   "name": " pingouin dérangé",
 
-  "src": "./img/svg/SVG/PingouinVert.svg",
+  "src": "./img/svg/png/pinguinrouge.png",
 },
 {
   "name": " poule argnieuse",
-  "src":  "./img/svg/SVG/PouleVert.svg",
+  "src":  "./img/svg/png/poulerouge.png",
 },
 {
   "name": "  Aigle troublé",
-  "src": "./img/svg/SVG/AigleVert.svg",
+  "src": "./img/svg/png/aiglerouge.png",
 },
 {
   "name": " autruche robuste",
-  "src": "./img/svg/SVG/autrucheVerte.svg"
+  "src": "./img/svg/png/autrucherouge.png"
 },
 {
   "name": "inséparable séparé",
-  "src": "./img/svg/SVG/InseparableVert.svg"
+  "src": "./img/svg/png/inseparablerouge.png"
 },
-
 
 {
 
   "name": "Rouge Gorge Alourdi",
-  "src": "./img/svg/SVG/GorgeVert.svg"
+  "src": "./img/svg/png/rougerouge.png"
 },
 
 {
   "name": "Hibou bourru",
-  "src": "./img/svg/SVG/HibouVert.svg"
+  "src": "./img/svg/png/hibourouge.png"
 },
 
 {
   "name": "Rouge Gorge Alourdi",
-  "src": "./img/svg/SVG/GorgeVert.svg"
+  "src": "./img/svg/SVG/peroquetrouge.png"
 }
 
 
