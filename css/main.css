@@ -1142,7 +1142,7 @@ margin: auto;
   padding: 0.1em 0.1em;
   width: 7.1em;
   border-radius: 0.3em;
-  margin-top: 15em;
+  margin-top: -10em;
   border: none;
   font-family: "Passion One", cursive;
 }
@@ -1181,23 +1181,7 @@ margin: auto;
   margin-left:-1em;
   font-family: "Passion One", cursive;
 }
-#back {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  color: #efdfd1;
-  background-color: #497a72;
-  cursor: pointer;
-  font-size: 2em;
-  padding: 0.1em 0.1em;
-  width: 7.1em;
-  border-radius: 0.3em;
-  border: none;
-  font-family: "Passion One", cursive;
-}
+
 #tontour {
   color: #d16a5b;
   position: absolute;
