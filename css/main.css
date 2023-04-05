@@ -748,17 +748,17 @@ margin-left: -2em;
 #ValidationFlex1 {
   display: flex;
   width: 100%;
-  background-color: yellow;
+  /* background-color: yellow; */
   /* margin-left: 8em; */
 }
 
 #ValidationFlex2 {
   width: 100%;
-  background-color: red;
+  /* background-color: red; */
 }
 #ValidationFlex3 {
   width: 100%;
-  background-color: blue;
+  /* background-color: blue; */
 }
 #validation {
   color: #e4a86c;
@@ -890,9 +890,7 @@ margin: auto;
   margin-top: 20em;
   margin-left: -10em;
 }
-#photoFlex3{
-  background-color: yellow;
-}#phototrouver {
+#phototrouver {
   color: #e4a86c;
   position: absolute;
   margin-top: -10em;
@@ -1489,7 +1487,7 @@ margin: auto;
   left: 0;
   z-index: 1000;
   filter: none;
-  background: red;
+  /* background: red; */
 }
 
 .hidden {
