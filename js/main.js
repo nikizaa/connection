@@ -360,7 +360,6 @@ buttonBack.onclick = () => {
 
 
 
-
 const names = [{
   "name": "pelican feneant",
   "src": "./img/svg/png/pelicanrouge.png"
